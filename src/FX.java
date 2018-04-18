@@ -45,6 +45,8 @@ public class FX extends Application {
      */
     public static void main(String[] args) {
         launch(args);
+        
+        System.out.println("test 123");
     }
     
 }
