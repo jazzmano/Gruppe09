@@ -46,4 +46,12 @@ public class FXMLDocumentController implements Initializable {
         
     }
     
+    //method designed to switch between existing scenes. 
+    private void changeScene(AnchorPane from, AnchorPane to) {
+        from.setVisible(false);
+        from.setDisable(true);
+        to.setVisible(true);
+        to.setDisable(false);
+    }
+    
 }
