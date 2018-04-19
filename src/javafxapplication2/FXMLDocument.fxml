@@ -7,13 +7,13 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="650.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="javafxapplication2.FXMLDocumentController">
+<AnchorPane id="AnchorPane" prefHeight="650.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="javafxapplication2.FXMLDocumentController">
    <children>
       <AnchorPane fx:id="loginFailedScreenPane" prefHeight="650.0" prefWidth="1000.0">
          <children>
-            <TextField fx:id="usernameField1" layoutX="388.0" layoutY="266.0" minWidth="225.0" />
-            <Button fx:id="loginButton1" layoutX="475.0" layoutY="388.0" mnemonicParsing="false" onAction="#loginButtonClick" text="Login" />
-            <PasswordField layoutX="388.0" layoutY="336.0" minWidth="225.0" />
+            <TextField fx:id="failedUsernameField" layoutX="388.0" layoutY="266.0" minWidth="225.0" />
+            <Button fx:id="failedLoginButton" layoutX="475.0" layoutY="388.0" mnemonicParsing="false" onAction="#loginButtonClick" text="Login" />
+            <PasswordField fx:id="failedPasswordField" layoutX="388.0" layoutY="336.0" minWidth="225.0" />
             <AnchorPane prefHeight="650.0" prefWidth="1000.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
             <Label alignment="CENTER" layoutX="410.0" layoutY="200.0" text="Login fejlede - Prøv igen">
                <font>
@@ -26,7 +26,7 @@
          <children>
             <TextField fx:id="usernameField" layoutX="388.0" layoutY="266.0" minWidth="225.0" />
             <Button fx:id="loginButton" layoutX="475.0" layoutY="388.0" mnemonicParsing="false" onAction="#loginButtonClick" text="Login" />
-            <PasswordField layoutX="388.0" layoutY="336.0" minWidth="225.0" />
+            <PasswordField fx:id="passwordField" layoutX="388.0" layoutY="336.0" minWidth="225.0" />
          </children>
       </AnchorPane>
       <AnchorPane fx:id="adminStartPane" prefHeight="650.0" prefWidth="1000.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />

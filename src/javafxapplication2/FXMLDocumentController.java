@@ -12,6 +12,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 
@@ -30,6 +31,22 @@ public class FXMLDocumentController implements Initializable {
     private TextField usernameField;
     @FXML
     private Button loginButton;
+    @FXML
+    private AnchorPane loginFailedScreenPane;
+    @FXML
+    private TextField failedUsernameField;
+    @FXML
+    private Button failedLoginButton;
+    @FXML
+    private PasswordField failedPasswordField;
+    @FXML
+    private AnchorPane adminStartPane;
+    @FXML
+    private AnchorPane userStartPane;
+    @FXML
+    private AnchorPane SecretaryStartPane;
+    @FXML
+    private AnchorPane SocialWorkerPane;
     
     private void handleButtonAction(ActionEvent event) {
         System.out.println("You clicked me!");
