@@ -24,7 +24,7 @@ import javafxapplication2.Logic.logicLogin;
  */
 public class FXMLDocumentController implements Initializable {
     
-    private logicLogin login;
+    private logicLogin login = new logicLogin();
     
     private characterCheck check;
     
@@ -66,31 +66,30 @@ public class FXMLDocumentController implements Initializable {
 
     @FXML
     private void loginButtonClick(ActionEvent event) {
-        String username = usernameField.getText();
-        String password = passwordField.getText();
+        //String username = usernameField.getText();
+        //String password = passwordField.getText();
         //check.trimForSpaceUsername(username);
         //check.trimForSpacePassword(password);
         //changeScene(loginScreenPane, adminStartPane);
         
-        //if(login.isInProfileDB(username, password) == true){
-            //int i = login.getUsertype();
-            switch (login.getUsertype()) {
-                case 1:
-                    changeScene(loginScreenPane, adminStartPane);
-                    break;
-                case 2:
-                    changeScene(loginScreenPane, SocialWorkerPane);
-                    break;
-                case 3:
-                    changeScene(loginScreenPane, SecretaryStartPane);
-                    break;
-                case 4:
-                    changeScene(loginScreenPane, userStartPane);
-                    break;
-                default:
-                    break;
-            //}
+        boolean a = login.isInProfileDB(usernameField.getText(),passwordField.getText());
+        if(a == true){
+            int i = login.getUsertype();
+            //changeScene(loginScreenPane, SocialWorkerPane);
+            if(login.getUsertype() == 1){
+                changeScene(loginScreenPane, adminStartPane);
+            }else if(login.getUsertype() == 2){
+                changeScene(loginScreenPane, SocialWorkerPane);
+            }else if(login.getUsertype() == 3){
+                changeScene(loginScreenPane, SecretaryStartPane);
+            }else if(login.getUsertype() == 4){
+                changeScene(loginScreenPane, userStartPane);
+            }
         }
+//        else
+//        {
+//            changeScene(loginScreenPane, userStartPane);
+//        }
 
     }
     

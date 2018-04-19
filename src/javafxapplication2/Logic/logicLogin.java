@@ -16,6 +16,8 @@ import java.sql.Statement;
  */
 public class logicLogin {
     private int usertype;
+    private String userName;
+    private String password1;
     private final String url = "jdbc:postgresql://elmer.db.elephantsql.com:5432/jrqqkajy";
     private final String username = "jrqqkajy";
     private final String password = "HBsjDFGy5QmbskR9yiPzvJMl1qtnQ9s8";
@@ -42,8 +44,11 @@ public class logicLogin {
                 passwordInDatabase = øv.getString(2);
                 if (nameInDatabase.equals(name) && passwordInDatabase.equals(password)) {
                 this.usertype = øv.getInt(3);
+                //this.password1 = øv.getString(2);
+                //this.userName = øv.getString(1);
                     valid = true;
                     break;
+                    //return true;
                 }
             }
 
@@ -55,6 +60,7 @@ public class logicLogin {
         } else {
             return false;
         }
+     //   return false;
     }
     public int getUsertype(){
         return this.usertype;
