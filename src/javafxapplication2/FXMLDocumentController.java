@@ -15,12 +15,18 @@ import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
+import javafxapplication2.Logic.characterCheck;
+import javafxapplication2.Logic.logicLogin;
 
 /**
  *
  * @author euc
  */
 public class FXMLDocumentController implements Initializable {
+    
+    private logicLogin login;
+    
+    private characterCheck check;
     
     private Label label;
     @FXML
@@ -60,7 +66,32 @@ public class FXMLDocumentController implements Initializable {
 
     @FXML
     private void loginButtonClick(ActionEvent event) {
+        String username = usernameField.getText();
+        String password = passwordField.getText();
+        //check.trimForSpaceUsername(username);
+        //check.trimForSpacePassword(password);
+        //changeScene(loginScreenPane, adminStartPane);
         
+        //if(login.isInProfileDB(username, password) == true){
+            //int i = login.getUsertype();
+            switch (login.getUsertype()) {
+                case 1:
+                    changeScene(loginScreenPane, adminStartPane);
+                    break;
+                case 2:
+                    changeScene(loginScreenPane, SocialWorkerPane);
+                    break;
+                case 3:
+                    changeScene(loginScreenPane, SecretaryStartPane);
+                    break;
+                case 4:
+                    changeScene(loginScreenPane, userStartPane);
+                    break;
+                default:
+                    break;
+            //}
+        }
+
     }
     
     //method designed to switch between existing scenes. 
@@ -69,6 +100,10 @@ public class FXMLDocumentController implements Initializable {
         from.setDisable(true);
         to.setVisible(true);
         to.setDisable(false);
+    }
+
+    @FXML
+    private void failedLoginButtonClick(ActionEvent event) {
     }
     
 }

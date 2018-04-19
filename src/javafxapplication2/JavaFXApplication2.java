@@ -10,6 +10,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import javafxapplication2.Logic.logicLogin;
 
 /**
  *
@@ -32,6 +33,9 @@ public class JavaFXApplication2 extends Application {
      */
     public static void main(String[] args) {
         launch(args);
+        
+        
+        
     }
     
 }

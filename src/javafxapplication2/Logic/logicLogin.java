@@ -41,8 +41,8 @@ public class logicLogin {
                 nameInDatabase = øv.getString(1);
                 passwordInDatabase = øv.getString(2);
                 if (nameInDatabase.equals(name) && passwordInDatabase.equals(password)) {
+                this.usertype = øv.getInt(3);
                     valid = true;
-                    this.usertype = øv.getInt(3);
                     break;
                 }
             }
@@ -64,7 +64,7 @@ public class logicLogin {
 
     public static void main(String[] args) {
         logicLogin a = new logicLogin();
-        System.out.println(a.isInProfileDB("Jens" , "1234"));
+        System.out.println(a.isInProfileDB("Kristian" , "1234"));
         System.out.println(a.getUsertype());
     }
 }

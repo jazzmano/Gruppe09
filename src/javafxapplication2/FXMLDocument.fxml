@@ -9,19 +9,18 @@
 
 <AnchorPane id="AnchorPane" prefHeight="650.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="javafxapplication2.FXMLDocumentController">
    <children>
-      <AnchorPane fx:id="loginScreenPane" prefHeight="650.0" prefWidth="1000.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <AnchorPane fx:id="loginScreenPane" prefHeight="650.0" prefWidth="1000.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
             <TextField fx:id="usernameField" layoutX="388.0" layoutY="266.0" minWidth="225.0" />
             <Button fx:id="loginButton" layoutX="475.0" layoutY="388.0" mnemonicParsing="false" onAction="#loginButtonClick" text="Login" />
-            <PasswordField fx:id="passwordField" layoutX="388.0" layoutY="336.0" minWidth="225.0" />
+            <TextField fx:id="passwordField" layoutX="388.0" layoutY="335.0" prefHeight="25.0" prefWidth="225.0" />
          </children>
       </AnchorPane>
-      <AnchorPane fx:id="loginFailedScreenPane" prefHeight="650.0" prefWidth="1000.0">
+      <AnchorPane fx:id="loginFailedScreenPane" disable="true" prefHeight="650.0" prefWidth="1000.0" visible="false">
          <children>
             <TextField fx:id="failedUsernameField" layoutX="388.0" layoutY="266.0" minWidth="225.0" />
-            <Button fx:id="failedLoginButton" layoutX="475.0" layoutY="388.0" mnemonicParsing="false" onAction="#loginButtonClick" text="Login" />
+            <Button fx:id="failedLoginButton" layoutX="475.0" layoutY="388.0" mnemonicParsing="false" onAction="#failedLoginButtonClick" text="Login" />
             <PasswordField fx:id="failedPasswordField" layoutX="388.0" layoutY="336.0" minWidth="225.0" />
-            <AnchorPane prefHeight="650.0" prefWidth="1000.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
             <Label alignment="CENTER" layoutX="410.0" layoutY="200.0" text="Login fejlede - Prøv igen">
                <font>
                   <Font size="17.0" />
@@ -29,9 +28,21 @@
             </Label>
          </children>
       </AnchorPane>
-      <AnchorPane fx:id="adminStartPane" prefHeight="650.0" prefWidth="1000.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
-      <AnchorPane fx:id="userStartPane" prefHeight="650.0" prefWidth="1000.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
-      <AnchorPane fx:id="SecretaryStartPane" prefHeight="650.0" prefWidth="1000.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
-      <AnchorPane fx:id="SocialWorkerPane" prefHeight="650.0" prefWidth="1000.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+      <AnchorPane fx:id="adminStartPane" disable="true" prefHeight="650.0" prefWidth="1000.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <Label layoutX="459.0" layoutY="289.0" text="adminn" />
+         </children></AnchorPane>
+      <AnchorPane fx:id="userStartPane" disable="true" prefHeight="650.0" prefWidth="1000.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <Label layoutX="424.0" layoutY="308.0" text="borger" />
+         </children></AnchorPane>
+      <AnchorPane fx:id="SecretaryStartPane" disable="true" prefHeight="650.0" prefWidth="1000.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <Label layoutX="262.0" layoutY="377.0" text="sekratær" />
+         </children></AnchorPane>
+      <AnchorPane fx:id="SocialWorkerPane" disable="true" prefHeight="650.0" prefWidth="1000.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <Label layoutX="350.0" layoutY="356.0" text="sagsbehanlder" />
+         </children></AnchorPane>
    </children>
 </AnchorPane>

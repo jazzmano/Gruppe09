@@ -10,5 +10,18 @@ package javafxapplication2.Logic;
  * @author nicol
  */
 public class characterCheck {
+    private String username; 
+    private String password; 
     
+    public characterCheck(){
+        
+    }
+    public String trimForSpaceUsername(String username){
+        this.username = username.trim();
+        return this.username;
+    }
+    public String trimForSpacePassword(String password){
+        this.password = password.trim();
+        return this.password;
+    }
 }
