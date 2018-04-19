@@ -15,34 +15,56 @@ import java.sql.Statement;
  * @author nicol
  */
 public class logicLogin {
+    private int usertype;
     private final String url = "jdbc:postgresql://elmer.db.elephantsql.com:5432/jrqqkajy";
     private final String username = "jrqqkajy";
     private final String password = "HBsjDFGy5QmbskR9yiPzvJMl1qtnQ9s8";
-    
-    public logicLogin(){
+
+    public logicLogin() {
         try {
             Class.forName("org.postgresql.Driver");
         } catch (java.lang.ClassNotFoundException e) {
             System.out.println(e);
         }
     }
-    public void test(){
-        try{
-        Connection db = DriverManager.getConnection(this.url, this.username, this.password);  
-        Statement a = db.createStatement();
-        ResultSet øv = a.executeQuery("select * from Users");
-        while(øv.next()){
-            System.out.println(øv.getString(1));
-            System.out.println(øv.getString(2));
-            System.out.println(øv.getString(3));
+
+    public boolean isInProfileDB(String name, String password) {
+        String nameInDatabase = "";
+        String passwordInDatabase = "";
+        boolean valid = false;
+        try {
+
+            Connection db = DriverManager.getConnection(this.url, this.username, this.password);
+            Statement a = db.createStatement();
+            ResultSet øv = a.executeQuery("select * from Users");
+            while (øv.next()) {
+                nameInDatabase = øv.getString(1);
+                passwordInDatabase = øv.getString(2);
+                if (nameInDatabase.equals(name) && passwordInDatabase.equals(password)) {
+                    valid = true;
+                    this.usertype = øv.getInt(3);
+                    break;
+                }
+            }
+
+        } catch (Exception e) {
+            System.out.println(e);
         }
-        }catch(Exception e){
-            
+        if (valid == true) {
+            return true;
+        } else {
+            return false;
         }
-        
     }
+    public int getUsertype(){
+        return this.usertype;
+    }
+
+  
+
     public static void main(String[] args) {
         logicLogin a = new logicLogin();
-        a.test();
+        System.out.println(a.isInProfileDB("Jens" , "1234"));
+        System.out.println(a.getUsertype());
     }
 }
