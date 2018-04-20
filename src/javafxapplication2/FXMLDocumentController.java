@@ -51,8 +51,9 @@ public class FXMLDocumentController implements Initializable {
     private AnchorPane userStartPane;
     @FXML
     private AnchorPane SecretaryStartPane;
-    @FXML
     private AnchorPane SocialWorkerPane;
+    @FXML
+    private AnchorPane SocialWorkerStartPane;
     
     private void handleButtonAction(ActionEvent event) {
         System.out.println("You clicked me!");
@@ -86,10 +87,10 @@ public class FXMLDocumentController implements Initializable {
                 changeScene(loginScreenPane, userStartPane);
             }
         }
-//        else
-//        {
-//            changeScene(loginScreenPane, userStartPane);
-//        }
+        else
+        {
+            changeScene(loginScreenPane, loginFailedScreenPane);
+        }
 
     }
     
@@ -103,6 +104,20 @@ public class FXMLDocumentController implements Initializable {
 
     @FXML
     private void failedLoginButtonClick(ActionEvent event) {
+        boolean a = login.isInProfileDB(failedUsernameField.getText(),failedPasswordField.getText());
+        if(a == true){
+            int i = login.getUsertype();
+            //changeScene(loginScreenPane, SocialWorkerPane);
+            if(login.getUsertype() == 1){
+                changeScene(loginFailedScreenPane, adminStartPane);
+            }else if(login.getUsertype() == 2){
+                changeScene(loginFailedScreenPane, SocialWorkerPane);
+            }else if(login.getUsertype() == 3){
+                changeScene(loginFailedScreenPane, SecretaryStartPane);
+            }else if(login.getUsertype() == 4){
+                changeScene(loginFailedScreenPane, userStartPane);
+            }
+        }
     }
     
 }

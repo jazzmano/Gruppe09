@@ -7,20 +7,20 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="650.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="javafxapplication2.FXMLDocumentController">
+<AnchorPane id="AnchorPane" prefHeight="650.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="javafxapplication2.FXMLDocumentController">
    <children>
-      <AnchorPane fx:id="loginScreenPane" prefHeight="650.0" prefWidth="1000.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <AnchorPane fx:id="loginScreenPane" disable="true" prefHeight="650.0" prefWidth="1000.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
             <TextField fx:id="usernameField" layoutX="388.0" layoutY="266.0" minWidth="225.0" />
-            <Button fx:id="loginButton" layoutX="475.0" layoutY="388.0" mnemonicParsing="false" onAction="#loginButtonClick" text="Login" />
             <TextField fx:id="passwordField" layoutX="388.0" layoutY="335.0" prefHeight="25.0" prefWidth="225.0" />
+            <Button fx:id="loginButton" layoutX="475.0" layoutY="388.0" mnemonicParsing="false" onAction="#loginButtonClick" text="Login" />
          </children>
       </AnchorPane>
       <AnchorPane fx:id="loginFailedScreenPane" disable="true" prefHeight="650.0" prefWidth="1000.0" visible="false">
          <children>
             <TextField fx:id="failedUsernameField" layoutX="388.0" layoutY="266.0" minWidth="225.0" />
-            <Button fx:id="failedLoginButton" layoutX="475.0" layoutY="388.0" mnemonicParsing="false" onAction="#failedLoginButtonClick" text="Login" />
             <PasswordField fx:id="failedPasswordField" layoutX="388.0" layoutY="336.0" minWidth="225.0" />
+            <Button fx:id="failedLoginButton" layoutX="475.0" layoutY="388.0" mnemonicParsing="false" onAction="#failedLoginButtonClick" text="Login" />
             <Label alignment="CENTER" layoutX="410.0" layoutY="200.0" text="Login fejlede - Prøv igen">
                <font>
                   <Font size="17.0" />
@@ -30,7 +30,7 @@
       </AnchorPane>
       <AnchorPane fx:id="adminStartPane" disable="true" prefHeight="650.0" prefWidth="1000.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <Label layoutX="459.0" layoutY="289.0" text="adminn" />
+            <Button layoutX="434.0" layoutY="308.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="133.0" text="Tilgå Bruger" />
          </children></AnchorPane>
       <AnchorPane fx:id="userStartPane" disable="true" prefHeight="650.0" prefWidth="1000.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
@@ -40,9 +40,15 @@
          <children>
             <Label layoutX="262.0" layoutY="377.0" text="sekratær" />
          </children></AnchorPane>
-      <AnchorPane fx:id="SocialWorkerPane" disable="true" prefHeight="650.0" prefWidth="1000.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <AnchorPane fx:id="SocialWorkerStartPane" disable="true" prefHeight="650.0" prefWidth="1000.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
             <Label layoutX="350.0" layoutY="356.0" text="sagsbehanlder" />
          </children></AnchorPane>
+      <AnchorPane prefHeight="650.0" prefWidth="1000.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <Button layoutX="442.0" layoutY="230.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="110.0" text="Button" />
+            <Button layoutX="439.0" layoutY="351.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="110.0" text="Button" />
+         </children>
+      </AnchorPane>
    </children>
 </AnchorPane>
