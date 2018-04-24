@@ -5,6 +5,7 @@
  */
 package test;
 
+import javafxapplication2.Logic.characterCheck;
 import javafxapplication2.Logic.logicLogin;
 
 /**
@@ -13,8 +14,10 @@ import javafxapplication2.Logic.logicLogin;
  */
 public class NewClass {
     public static void main(String[] args) {
-        logicLogin a = new logicLogin();
-        a.isInProfileDB("Kristian","1234");
-        System.out.println(a.getUsertype());
+        characterCheck a = new characterCheck();
+        String b = "nicolai  ";
+        System.out.println(b.length());
+        a.trimForSpacePassword(b);
+        System.out.println(b.length());
     }
 }

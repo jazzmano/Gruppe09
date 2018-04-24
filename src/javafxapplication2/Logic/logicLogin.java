@@ -42,7 +42,7 @@ public class logicLogin {
             while (øv.next()) {
                 nameInDatabase = øv.getString(1);
                 passwordInDatabase = øv.getString(2);
-                if (nameInDatabase.equals(name) && passwordInDatabase.equals(password)) {
+                if (nameInDatabase.equalsIgnoreCase(name.trim()) && passwordInDatabase.equalsIgnoreCase(password.trim())) {
                 this.usertype = øv.getInt(3);
                 //this.password1 = øv.getString(2);
                 //this.userName = øv.getString(1);
@@ -66,6 +66,21 @@ public class logicLogin {
         return this.usertype;
     }
 
+    public String getListOfUseres(){
+       String test = "";
+       try {
+
+            Connection db = DriverManager.getConnection(this.url, this.username, this.password);
+            Statement a = db.createStatement();
+            ResultSet øv = a.executeQuery("select * from Users"); 
+            while(øv.next()){
+                test = test+øv.getString(1)+" "+øv.getString(2)+" "+øv.getString(3)+"\n";
+            }
+       }catch(Exception e){
+           
+       }
+       return test;
+    }
   
 
     public static void main(String[] args) {

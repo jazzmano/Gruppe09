@@ -21,7 +21,9 @@ public class characterCheck {
         return this.username;
     }
     public String trimForSpacePassword(String password){
-        this.password = password.trim();
-        return this.password;
+        password.trim();
+        return password;
     }
+    
+    
 }
