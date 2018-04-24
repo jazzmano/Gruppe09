@@ -83,9 +83,9 @@ public class logicLogin {
     }
   
 
-    public static void main(String[] args) {
-        logicLogin a = new logicLogin();
-        System.out.println(a.isInProfileDB("Kristian" , "1234"));
-        System.out.println(a.getUsertype());
-    }
+//    public static void main(String[] args) {
+//        logicLogin a = new logicLogin();
+//        System.out.println(a.isInProfileDB("Kristian" , "1234"));
+//        System.out.println(a.getUsertype());
+//    }
 }
