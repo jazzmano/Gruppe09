@@ -65,16 +65,32 @@ public class logicLogin {
     public int getUsertype(){
         return this.usertype;
     }
+    
+    
+    public void createNewUser(String username,String password,int usertype){
+        
+      try {
+            Connection db = DriverManager.getConnection(this.url, this.username, this.password);
+            Statement a = db.createStatement();
+            ResultSet øv = a.executeQuery("insert into Users values('"+username+"','"+password+"',"+usertype+")"); 
+            
+            
+            
+            
+      }catch(Exception e){
+          
+      }
+    }
 
     public String getListOfUseres(){
-       String test = "";
+       String test = "Username :        Password :      Usertype : \n";
        try {
 
             Connection db = DriverManager.getConnection(this.url, this.username, this.password);
             Statement a = db.createStatement();
             ResultSet øv = a.executeQuery("select * from Users"); 
             while(øv.next()){
-                test = test+øv.getString(1)+" "+øv.getString(2)+" "+øv.getString(3)+"\n";
+                test += øv.getString(1)+"\t\t\t"+øv.getString(2)+"\t\t\t"+øv.getString(3)+"\n";
             }
        }catch(Exception e){
            
@@ -87,5 +103,7 @@ public class logicLogin {
 //        logicLogin a = new logicLogin();
 //        System.out.println(a.isInProfileDB("Kristian" , "1234"));
 //        System.out.println(a.getUsertype());
+//        a.createNewUser("noget","1234",3);
+//        System.out.println(a.getListOfUseres());
 //    }
 }

@@ -16,6 +16,7 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.text.Text;
 import javafxapplication2.Logic.characterCheck;
 import javafxapplication2.Logic.logicLogin;
 
@@ -55,10 +56,35 @@ public class FXMLDocumentController implements Initializable {
     private AnchorPane SocialWorkerPane;
     @FXML
     private AnchorPane SocialWorkerStartPane;
+   // private TextArea testFelt;
     @FXML
-    private Button Test;
+    private Button AdminCreateCaseButton;
     @FXML
-    private TextArea testFelt;
+    private AnchorPane AcessUserAnchorPane;
+    @FXML
+    private Button ListOfUserButton;
+    @FXML
+    private TextArea ListOfUsersField;
+    @FXML
+    private Button AcessUserButton;
+    @FXML
+    private Button backToAdminPane;
+    @FXML
+    private TextField CreateUsernameTextField;
+    @FXML
+    private TextField CreateUserPasswordTextField;
+    @FXML
+    private TextField CreateUserTypeTextField;
+    @FXML
+    private Button BackToAcessUserAnchorPaneButton;
+    @FXML
+    private Button CreateNewUserButton;
+    @FXML
+    private AnchorPane CreateUserAnchorPane;
+    @FXML
+    private Button CreateUserButton;
+    @FXML
+    private Text IfUsertypeIsWrong;
     
     private void handleButtonAction(ActionEvent event) {
         System.out.println("You clicked me!");
@@ -125,9 +151,49 @@ public class FXMLDocumentController implements Initializable {
         }
     }
 
+//    private void TestClick(ActionEvent event) {
+//        testFelt.setText(login.getListOfUseres());
+//    }
+
     @FXML
-    private void TestClick(ActionEvent event) {
-        testFelt.setText(login.getListOfUseres());
+    private void AdminCreateCaseButtonClick(ActionEvent event) {
+        
+    }
+
+    @FXML
+    private void ListOfUserButtonClick(ActionEvent event) {
+        ListOfUsersField.setText(login.getListOfUseres());
+        
+    }
+
+    @FXML
+    private void acessUserButtonClick(ActionEvent event) {
+        changeScene(adminStartPane, AcessUserAnchorPane);
+    }
+
+    @FXML
+    private void backToAdminPaneClick(ActionEvent event) {
+        changeScene(AcessUserAnchorPane,adminStartPane);
+    }
+
+    @FXML
+    private void BackToAcessUserAnchorPaneButtonClick(ActionEvent event) {
+        changeScene(CreateUserAnchorPane, AcessUserAnchorPane);
+    }
+
+    @FXML
+    private void CreateNewUserButtonClick(ActionEvent event) {
+        if(Integer.parseInt(CreateUserTypeTextField.getText()) <= 4 && Integer.parseInt(CreateUserTypeTextField.getText()) > 0){
+            login.createNewUser(CreateUsernameTextField.getText(), CreateUserPasswordTextField.getText(), Integer.parseInt(CreateUserTypeTextField.getText()));
+            IfUsertypeIsWrong.setText("bruger oprettet");
+        }else{
+            IfUsertypeIsWrong.setText("forkert input i brugertype ");
+        }
+    }
+
+    @FXML
+    private void CreateUserButtonClick(ActionEvent event) {
+        changeScene(AcessUserAnchorPane, CreateUserAnchorPane);
     }
     
 }
