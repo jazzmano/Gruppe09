@@ -11,7 +11,7 @@
 
 <AnchorPane id="AnchorPane" prefHeight="650.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="javafxapplication2.FXMLDocumentController">
    <children>
-      <AnchorPane fx:id="loginScreenPane" disable="true" prefHeight="650.0" prefWidth="1000.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <AnchorPane fx:id="loginScreenPane" prefHeight="650.0" prefWidth="1000.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
             <TextField fx:id="usernameField" layoutX="388.0" layoutY="266.0" minWidth="225.0" />
             <Button fx:id="loginButton" layoutX="475.0" layoutY="388.0" mnemonicParsing="false" onAction="#loginButtonClick" text="Login" />
@@ -47,7 +47,7 @@
          <children>
             <Label layoutX="350.0" layoutY="356.0" text="sagsbehanlder" />
          </children></AnchorPane>
-      <AnchorPane fx:id="AcessUserAnchorPane" prefHeight="650.0" prefWidth="1000.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <AnchorPane fx:id="AcessUserAnchorPane" disable="true" prefHeight="650.0" prefWidth="1000.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
             <Button fx:id="ListOfUserButton" layoutX="651.0" layoutY="120.0" mnemonicParsing="false" onAction="#ListOfUserButtonClick" prefHeight="75.0" prefWidth="210.0" text="Liste af brugere" />
             <Button fx:id="CreateUserButton" layoutX="106.0" layoutY="120.0" mnemonicParsing="false" onAction="#CreateUserButtonClick" prefHeight="75.0" prefWidth="210.0" text="Opret bruger" />
