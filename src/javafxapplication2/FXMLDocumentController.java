@@ -7,11 +7,14 @@ package javafxapplication2;
 
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.ListView;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
@@ -65,8 +68,6 @@ public class FXMLDocumentController implements Initializable {
     @FXML
     private Button ListOfUserButton;
     @FXML
-    private TextArea ListOfUsersField;
-    @FXML
     private Button AcessUserButton;
     @FXML
     private Button backToAdminPane;
@@ -87,9 +88,17 @@ public class FXMLDocumentController implements Initializable {
     @FXML
     private Text IfUsertypeIsWrong;
     @FXML
-    private TextArea ListOfPasswodFiled;
+    private Button deleteUserButton;
     @FXML
-    private TextArea ListOfUsertypeFiled;
+    private TextField deleteUserTextField;
+    @FXML
+    private Button confirmButton;
+    @FXML
+    private Text erBrugerenSlettetLabel;
+    @FXML
+    private TextField deletePasswordTextField;
+    @FXML
+    private ListView<String> TestListView;
     
     private void handleButtonAction(ActionEvent event) {
         System.out.println("You clicked me!");
@@ -167,10 +176,12 @@ public class FXMLDocumentController implements Initializable {
 
     @FXML
     private void ListOfUserButtonClick(ActionEvent event) {
-        ListOfUsersField.setText(login.getListOfUseresName());
-        ListOfPasswodFiled.setText(login.getListOfUseresPassword());
-        ListOfUsertypeFiled.setText(login.getListOfUseresType());
-        
+          ObservableList<String> userTest = FXCollections.observableArrayList(login.getUserlist()); 
+          TestListView.setItems(userTest);
+//        ListOfUsersField.setText(login.getListOfUseresName());
+//        ListOfPasswodFiled.setText(login.getListOfUseresPassword());
+//        ListOfUsertypeFiled.setText(login.getListOfUseresType());
+//        
     }
 
     @FXML
@@ -201,6 +212,26 @@ public class FXMLDocumentController implements Initializable {
     @FXML
     private void CreateUserButtonClick(ActionEvent event) {
         changeScene(AcessUserAnchorPane, CreateUserAnchorPane);
+    }
+
+    @FXML
+    private void deleteUserButtonClick(ActionEvent event) {
+        deleteUserTextField.setVisible(true);
+        deleteUserTextField.setDisable(false);
+        deletePasswordTextField.setVisible(true);
+        deletePasswordTextField.setDisable(false);
+        confirmButton.setVisible(true);
+        confirmButton.setDisable(false);
+    }
+
+    @FXML
+    private void conformButtonClick(ActionEvent event) {
+        if(login.isInProfileDB(deleteUserTextField.getText(), deletePasswordTextField.getText())){
+            login.deleteUser(deleteUserTextField.getText(),deletePasswordTextField.getText());
+            erBrugerenSlettetLabel.setText("Brugeren er fjernet");
+        }else
+            erBrugerenSlettetLabel.setText("Ingen bruger med det navn");
+        
     }
     
 }
