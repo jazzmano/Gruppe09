@@ -11,6 +11,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -203,10 +204,13 @@ public class logicLogin{
 }
 
     public static void main(String[] args){
-        logicLogin a = new logicLogin();
-        System.out.println(a.isInProfileDB("Kristian" , "1234"));
-        System.out.println(a.getUsertype());
-        a.createNewUser("noget","1234",3);
+//        logicLogin a = new logicLogin();
+//        System.out.println(a.isInProfileDB("Kristian" , "1234"));
+//        System.out.println(a.getUsertype());
+//        a.createNewUser("noget","1234",3);
+        Date r = new Date();
+       
+        System.out.println(r);
         //System.out.println(a.getListOfUseres());
     }
 }

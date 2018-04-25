@@ -20,7 +20,6 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.text.Text;
-import javafxapplication2.Logic.characterCheck;
 import javafxapplication2.Logic.logicLogin;
 
 /**
@@ -31,8 +30,6 @@ public class FXMLDocumentController implements Initializable {
     
     private logicLogin login = new logicLogin();
     
-    
-    private characterCheck check;
     
     private Label label;
     @FXML
@@ -68,6 +65,8 @@ public class FXMLDocumentController implements Initializable {
     @FXML
     private Button ListOfUserButton;
     @FXML
+    private TextArea ListOfUsersField;
+    @FXML
     private Button AcessUserButton;
     @FXML
     private Button backToAdminPane;
@@ -87,6 +86,10 @@ public class FXMLDocumentController implements Initializable {
     private Button CreateUserButton;
     @FXML
     private Text IfUsertypeIsWrong;
+    @FXML
+    private TextArea ListOfPasswodFiled;
+    @FXML
+    private TextArea ListOfUsertypeFiled;
     @FXML
     private Button deleteUserButton;
     @FXML
