@@ -28,6 +28,7 @@ public class FXMLDocumentController implements Initializable {
     
     private logicLogin login = new logicLogin();
     
+    
     private characterCheck check;
     
     private Label label;
@@ -85,6 +86,10 @@ public class FXMLDocumentController implements Initializable {
     private Button CreateUserButton;
     @FXML
     private Text IfUsertypeIsWrong;
+    @FXML
+    private TextArea ListOfPasswodFiled;
+    @FXML
+    private TextArea ListOfUsertypeFiled;
     
     private void handleButtonAction(ActionEvent event) {
         System.out.println("You clicked me!");
@@ -162,7 +167,9 @@ public class FXMLDocumentController implements Initializable {
 
     @FXML
     private void ListOfUserButtonClick(ActionEvent event) {
-        ListOfUsersField.setText(login.getListOfUseres());
+        ListOfUsersField.setText(login.getListOfUseresName());
+        ListOfPasswodFiled.setText(login.getListOfUseresPassword());
+        ListOfUsertypeFiled.setText(login.getListOfUseresType());
         
     }
 

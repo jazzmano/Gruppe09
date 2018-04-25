@@ -14,7 +14,7 @@ import java.sql.Statement;
  *
  * @author nicol
  */
-public class logicLogin {
+public class logicLogin{
     private int usertype;
     private String userName;
     private String password1;
@@ -82,15 +82,30 @@ public class logicLogin {
       }
     }
 
-    public String getListOfUseres(){
-       String test = "Username :        Password :      Usertype : \n";
+    public String getListOfUseresName(){
+       String test = "Username :\n";
        try {
 
             Connection db = DriverManager.getConnection(this.url, this.username, this.password);
             Statement a = db.createStatement();
             ResultSet øv = a.executeQuery("select * from Users"); 
             while(øv.next()){
-                test += øv.getString(1)+"\t\t\t"+øv.getString(2)+"\t\t\t"+øv.getString(3)+"\n";
+                test += øv.getString(1)+"\n";
+            }
+       }catch(Exception e){
+           
+       }
+       return test;
+    }
+  public String getListOfUseresPassword(){
+       String test = "Password :\n";
+       try {
+
+            Connection db = DriverManager.getConnection(this.url, this.username, this.password);
+            Statement a = db.createStatement();
+            ResultSet øv = a.executeQuery("select * from Users"); 
+            while(øv.next()){
+                test += øv.getString(2)+"\n";
             }
        }catch(Exception e){
            
@@ -98,6 +113,31 @@ public class logicLogin {
        return test;
     }
   
+  
+   public String getListOfUseresType(){
+       String test = "Usertype :\n";
+       try {
+
+            Connection db = DriverManager.getConnection(this.url, this.username, this.password);
+            Statement a = db.createStatement();
+            ResultSet øv = a.executeQuery("select * from Users"); 
+            while(øv.next()){
+              //  test += øv.getString(3)+"\n";
+              if(øv.getString(3).equalsIgnoreCase("1")){
+                  test+="Admin\n";
+              }else if(øv.getString(3).equalsIgnoreCase("2")){
+                  test+="Sagsbehanlder\n";
+              }else if(øv.getString(3).equalsIgnoreCase("3")){
+                  test+="Sekratær\n";
+              }else{
+                  test+="Borger\n";
+              }
+            }
+       }catch(Exception e){
+           
+       }
+       return test;
+    }
 
 //    public static void main(String[] args) {
 //        logicLogin a = new logicLogin();
