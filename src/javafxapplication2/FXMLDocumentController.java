@@ -53,16 +53,9 @@ public class FXMLDocumentController implements Initializable {
     private AnchorPane adminStartPane;
     @FXML
     private AnchorPane userStartPane;
-    @FXML
-    private AnchorPane SecretaryStartPane;
-    private AnchorPane SocialWorkerPane;
-    @FXML
-    private AnchorPane SocialWorkerStartPane;
    // private TextArea testFelt;
     @FXML
     private Button AdminCreateCaseButton;
-    @FXML
-    private AnchorPane AcessUserAnchorPane;
     @FXML
     private Button ListOfUserButton;
     @FXML
@@ -79,8 +72,6 @@ public class FXMLDocumentController implements Initializable {
     private Button BackToAcessUserAnchorPaneButton;
     @FXML
     private Button CreateNewUserButton;
-    @FXML
-    private AnchorPane CreateUserAnchorPane;
     @FXML
     private Button CreateUserButton;
     @FXML
@@ -106,9 +97,17 @@ public class FXMLDocumentController implements Initializable {
     @FXML
     private Button opretSagButtonSocialWorker;
     @FXML
-    private AnchorPane CreateCaseAnchorPane;
-    @FXML
     private Button backToStartPaneButton;
+    @FXML
+    private AnchorPane secretaryStartPane;
+    @FXML
+    private AnchorPane socialWorkerStartPane;
+    @FXML
+    private AnchorPane accessUserAnchorPane;
+    @FXML
+    private AnchorPane createUserAnchorPane;
+    @FXML
+    private AnchorPane createCaseAnchorPane;
     
     private void handleButtonAction(ActionEvent event) {
         System.out.println("You clicked me!");
@@ -135,9 +134,9 @@ public class FXMLDocumentController implements Initializable {
             if(login.getUsertype() == 1){
                 changeScene(loginScreenPane, adminStartPane);
             }else if(login.getUsertype() == 2){
-                changeScene(loginScreenPane, SocialWorkerStartPane);
+                changeScene(loginScreenPane, socialWorkerStartPane);
             }else if(login.getUsertype() == 3){
-                changeScene(loginScreenPane, SecretaryStartPane);
+                changeScene(loginScreenPane, secretaryStartPane);
             }else if(login.getUsertype() == 4){
                 changeScene(loginScreenPane, userStartPane);
             }
@@ -166,9 +165,9 @@ public class FXMLDocumentController implements Initializable {
             if(login.getUsertype() == 1){
                 changeScene(loginFailedScreenPane, adminStartPane);
             }else if(login.getUsertype() == 2){
-                changeScene(loginFailedScreenPane, SocialWorkerStartPane);
+                changeScene(loginFailedScreenPane, socialWorkerStartPane);
             }else if(login.getUsertype() == 3){
-                changeScene(loginFailedScreenPane, SecretaryStartPane);
+                changeScene(loginFailedScreenPane, secretaryStartPane);
             }else if(login.getUsertype() == 4){
                 changeScene(loginFailedScreenPane, userStartPane);
             }
@@ -181,7 +180,7 @@ public class FXMLDocumentController implements Initializable {
 
     @FXML
     private void AdminCreateCaseButtonClick(ActionEvent event) {
-        changeScene(adminStartPane, CreateCaseAnchorPane);
+        changeScene(adminStartPane, createCaseAnchorPane);
     }
 
     @FXML
@@ -196,17 +195,17 @@ public class FXMLDocumentController implements Initializable {
 
     @FXML
     private void acessUserButtonClick(ActionEvent event) {
-        changeScene(adminStartPane, AcessUserAnchorPane);
+        changeScene(adminStartPane, accessUserAnchorPane);
     }
 
     @FXML
     private void backToAdminPaneClick(ActionEvent event) {
-        changeScene(AcessUserAnchorPane,adminStartPane);
+        changeScene(accessUserAnchorPane,adminStartPane);
     }
 
     @FXML
     private void BackToAcessUserAnchorPaneButtonClick(ActionEvent event) {
-        changeScene(CreateUserAnchorPane, AcessUserAnchorPane);
+        changeScene(createUserAnchorPane, accessUserAnchorPane);
     }
 
     @FXML
@@ -221,7 +220,7 @@ public class FXMLDocumentController implements Initializable {
 
     @FXML
     private void CreateUserButtonClick(ActionEvent event) {
-        changeScene(AcessUserAnchorPane, CreateUserAnchorPane);
+        changeScene(accessUserAnchorPane, createUserAnchorPane);
     }
 
     @FXML
@@ -251,15 +250,15 @@ public class FXMLDocumentController implements Initializable {
 
     @FXML
     private void opretSagButtonSocialWorkerClick(ActionEvent event) {
-        changeScene(SocialWorkerStartPane, CreateCaseAnchorPane);
+        changeScene(socialWorkerStartPane, createCaseAnchorPane);
     }
 
     @FXML
     private void backToStartPaneButtonClick(ActionEvent event) {
         if(login.getUsertype() == 1){
-          changeScene(CreateCaseAnchorPane, adminStartPane);
+          changeScene(createCaseAnchorPane, adminStartPane);
         }else
-            changeScene(CreateCaseAnchorPane, SocialWorkerStartPane); 
+            changeScene(createCaseAnchorPane, socialWorkerStartPane); 
     }
     
 }

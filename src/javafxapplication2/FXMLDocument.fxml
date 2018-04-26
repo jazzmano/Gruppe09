@@ -40,15 +40,15 @@
          <children>
             <Label layoutX="424.0" layoutY="308.0" text="borger" />
          </children></AnchorPane>
-      <AnchorPane fx:id="SecretaryStartPane" disable="true" prefHeight="650.0" prefWidth="1000.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <AnchorPane fx:id="secretaryStartPane" disable="true" prefHeight="650.0" prefWidth="1000.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
             <Label layoutX="262.0" layoutY="377.0" text="sekratær" />
          </children></AnchorPane>
-      <AnchorPane fx:id="SocialWorkerStartPane" disable="true" prefHeight="650.0" prefWidth="1000.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <AnchorPane fx:id="socialWorkerStartPane" disable="true" prefHeight="650.0" prefWidth="1000.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
             <Button fx:id="opretSagButtonSocialWorker" layoutX="454.0" layoutY="293.0" mnemonicParsing="false" onAction="#opretSagButtonSocialWorkerClick" text="Opret sag" />
          </children></AnchorPane>
-      <AnchorPane fx:id="AcessUserAnchorPane" disable="true" prefHeight="650.0" prefWidth="1000.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <AnchorPane fx:id="accessUserAnchorPane" disable="true" prefHeight="650.0" prefWidth="1000.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
             <Button fx:id="ListOfUserButton" layoutX="651.0" layoutY="120.0" mnemonicParsing="false" onAction="#ListOfUserButtonClick" prefHeight="75.0" prefWidth="210.0" text="Liste af brugere" />
             <Button fx:id="CreateUserButton" layoutX="106.0" layoutY="120.0" mnemonicParsing="false" onAction="#CreateUserButtonClick" prefHeight="75.0" prefWidth="210.0" text="Opret bruger" />
@@ -61,7 +61,7 @@
             <ListView fx:id="TestListView" layoutX="566.0" layoutY="214.0" prefHeight="357.0" prefWidth="378.0" />
          </children>
       </AnchorPane>
-      <AnchorPane fx:id="CreateUserAnchorPane" disable="true" prefHeight="650.0" prefWidth="1000.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <AnchorPane fx:id="createUserAnchorPane" disable="true" prefHeight="650.0" prefWidth="1000.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
             <Text layoutX="63.0" layoutY="118.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Indtast Brugernavn" wrappingWidth="184.00000590085983" />
             <TextField fx:id="CreateUsernameTextField" layoutX="400.0" layoutY="101.0" />
@@ -79,7 +79,7 @@
             <Text fx:id="IfUsertypeIsWrong" layoutX="463.0" layoutY="471.0" strokeType="OUTSIDE" strokeWidth="0.0" />
          </children>
       </AnchorPane>
-      <AnchorPane fx:id="CreateCaseAnchorPane" disable="true" prefHeight="650.0" prefWidth="1000.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <AnchorPane fx:id="createCaseAnchorPane" disable="true" prefHeight="650.0" prefWidth="1000.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
             <TextField fx:id="cprField" layoutX="107.0" layoutY="67.0" />
             <TextArea fx:id="caseInputField" layoutX="147.0" layoutY="152.0" prefHeight="452.0" prefWidth="694.0" />
