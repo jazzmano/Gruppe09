@@ -12,7 +12,7 @@
 
 <AnchorPane id="AnchorPane" prefHeight="650.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="javafxapplication2.FXMLDocumentController">
    <children>
-      <AnchorPane fx:id="loginScreenPane" disable="true" prefHeight="650.0" prefWidth="1000.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <AnchorPane fx:id="loginScreenPane" prefHeight="650.0" prefWidth="1000.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
             <TextField fx:id="usernameField" layoutX="388.0" layoutY="266.0" minWidth="225.0" />
             <Button fx:id="loginButton" layoutX="475.0" layoutY="388.0" mnemonicParsing="false" onAction="#loginButtonClick" text="Login" />
@@ -46,7 +46,7 @@
          </children></AnchorPane>
       <AnchorPane fx:id="SocialWorkerStartPane" disable="true" prefHeight="650.0" prefWidth="1000.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <Label layoutX="350.0" layoutY="356.0" text="sagsbehanlder" />
+            <Button fx:id="opretSagButtonSocialWorker" layoutX="454.0" layoutY="293.0" mnemonicParsing="false" onAction="#opretSagButtonSocialWorkerClick" text="Opret sag" />
          </children></AnchorPane>
       <AnchorPane fx:id="AcessUserAnchorPane" disable="true" prefHeight="650.0" prefWidth="1000.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
@@ -79,11 +79,12 @@
             <Text fx:id="IfUsertypeIsWrong" layoutX="463.0" layoutY="471.0" strokeType="OUTSIDE" strokeWidth="0.0" />
          </children>
       </AnchorPane>
-      <AnchorPane prefHeight="650.0" prefWidth="1000.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <AnchorPane fx:id="CreateCaseAnchorPane" disable="true" prefHeight="650.0" prefWidth="1000.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
             <TextField fx:id="cprField" layoutX="107.0" layoutY="67.0" />
             <TextArea fx:id="caseInputField" layoutX="147.0" layoutY="152.0" prefHeight="452.0" prefWidth="694.0" />
             <Button fx:id="createCaseButton" layoutX="815.0" layoutY="67.0" mnemonicParsing="false" onAction="#createCaseButtonClick" text="Opret sag" />
+            <Button fx:id="backToStartPaneButton" layoutX="55.0" layoutY="579.0" mnemonicParsing="false" onAction="#backToStartPaneButtonClick" text="Tilbage" />
          </children>
       </AnchorPane>
    </children>

@@ -103,6 +103,12 @@ public class FXMLDocumentController implements Initializable {
     private TextArea caseInputField;
     @FXML
     private Button createCaseButton;
+    @FXML
+    private Button opretSagButtonSocialWorker;
+    @FXML
+    private AnchorPane CreateCaseAnchorPane;
+    @FXML
+    private Button backToStartPaneButton;
     
     private void handleButtonAction(ActionEvent event) {
         System.out.println("You clicked me!");
@@ -129,7 +135,7 @@ public class FXMLDocumentController implements Initializable {
             if(login.getUsertype() == 1){
                 changeScene(loginScreenPane, adminStartPane);
             }else if(login.getUsertype() == 2){
-                changeScene(loginScreenPane, SocialWorkerPane);
+                changeScene(loginScreenPane, SocialWorkerStartPane);
             }else if(login.getUsertype() == 3){
                 changeScene(loginScreenPane, SecretaryStartPane);
             }else if(login.getUsertype() == 4){
@@ -160,7 +166,7 @@ public class FXMLDocumentController implements Initializable {
             if(login.getUsertype() == 1){
                 changeScene(loginFailedScreenPane, adminStartPane);
             }else if(login.getUsertype() == 2){
-                changeScene(loginFailedScreenPane, SocialWorkerPane);
+                changeScene(loginFailedScreenPane, SocialWorkerStartPane);
             }else if(login.getUsertype() == 3){
                 changeScene(loginFailedScreenPane, SecretaryStartPane);
             }else if(login.getUsertype() == 4){
@@ -175,7 +181,7 @@ public class FXMLDocumentController implements Initializable {
 
     @FXML
     private void AdminCreateCaseButtonClick(ActionEvent event) {
-        
+        changeScene(adminStartPane, CreateCaseAnchorPane);
     }
 
     @FXML
@@ -241,6 +247,19 @@ public class FXMLDocumentController implements Initializable {
     @FXML
     private void createCaseButtonClick(ActionEvent event) {
         createCase.createNewCase(cprField.getText(), caseInputField.getText());
+    }
+
+    @FXML
+    private void opretSagButtonSocialWorkerClick(ActionEvent event) {
+        changeScene(SocialWorkerStartPane, CreateCaseAnchorPane);
+    }
+
+    @FXML
+    private void backToStartPaneButtonClick(ActionEvent event) {
+        if(login.getUsertype() == 1){
+          changeScene(CreateCaseAnchorPane, adminStartPane);
+        }else
+            changeScene(CreateCaseAnchorPane, SocialWorkerStartPane); 
     }
     
 }
