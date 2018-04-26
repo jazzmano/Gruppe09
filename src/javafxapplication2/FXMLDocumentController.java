@@ -116,6 +116,14 @@ public class FXMLDocumentController implements Initializable {
     private Button logUdSecretaryPaneButton;
     @FXML
     private Button logUdSocialWorkerButton;
+    @FXML
+    private Button showCaseAdminButton;
+    @FXML
+    private AnchorPane showCaseAnchorPane;
+    @FXML
+    private Button seeListOfCaseButton;
+    @FXML
+    private ListView<String> showCaseListView;
     
     private void handleButtonAction(ActionEvent event) {
         System.out.println("You clicked me!");
@@ -271,18 +279,32 @@ public class FXMLDocumentController implements Initializable {
 
     @FXML
     private void logUdAdminPaneButtonClick(ActionEvent event) {
+        changeScene(adminStartPane, loginScreenPane);
     }
 
     @FXML
     private void logUdBorgerPaneButtonClick(ActionEvent event) {
+        changeScene(userStartPane, loginScreenPane);
     }
 
     @FXML
     private void logUdSecretaryButtonClick(ActionEvent event) {
+        changeScene(secretaryStartPane, loginScreenPane);
     }
 
     @FXML
     private void logUdSocialWorkerButtonClick(ActionEvent event) {
+        changeScene(socialWorkerStartPane, loginScreenPane);
+    }
+
+    @FXML
+    private void showCaseAdminButtonClick(ActionEvent event) {
+    }
+
+    @FXML
+    private void seeListOfCaseButtonClick(ActionEvent event) {
+        ObservableList<String> UserCase = FXCollections.observableArrayList(createCase.getCaseList()); 
+        showCaseListView.setItems(UserCase);
     }
     
 }

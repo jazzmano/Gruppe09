@@ -15,8 +15,8 @@
       <AnchorPane fx:id="loginScreenPane" prefHeight="650.0" prefWidth="1000.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
             <TextField fx:id="usernameField" layoutX="388.0" layoutY="266.0" minWidth="225.0" />
-            <Button fx:id="loginButton" layoutX="475.0" layoutY="388.0" mnemonicParsing="false" onAction="#loginButtonClick" text="Login" />
             <PasswordField fx:id="passwordField" layoutX="388.0" layoutY="313.0" minWidth="225.0" />
+            <Button fx:id="loginButton" layoutX="475.0" layoutY="388.0" mnemonicParsing="false" onAction="#loginButtonClick" text="Login" />
          </children>
       </AnchorPane>
       <AnchorPane fx:id="loginFailedScreenPane" disable="true" prefHeight="650.0" prefWidth="1000.0" visible="false">
@@ -36,6 +36,7 @@
             <Button fx:id="AcessUserButton" layoutX="434.0" layoutY="308.0" mnemonicParsing="false" onAction="#acessUserButtonClick" prefHeight="34.0" prefWidth="133.0" text="Tilgå Bruger" />
             <Button fx:id="AdminCreateCaseButton" layoutX="434.0" layoutY="152.0" mnemonicParsing="false" onAction="#AdminCreateCaseButtonClick" prefHeight="34.0" prefWidth="133.0" text="Opret Sag" />
             <Button fx:id="logUdAdminPaneButton" layoutX="832.0" layoutY="545.0" mnemonicParsing="false" onAction="#logUdAdminPaneButtonClick" text="Log ud" />
+            <Button fx:id="showCaseAdminButton" layoutX="434.0" layoutY="227.0" mnemonicParsing="false" onAction="#showCaseAdminButtonClick" prefHeight="34.0" prefWidth="133.0" text="Vis sager" />
          </children></AnchorPane>
       <AnchorPane fx:id="userStartPane" disable="true" prefHeight="650.0" prefWidth="1000.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
@@ -89,6 +90,12 @@
             <TextArea fx:id="caseInputField" layoutX="147.0" layoutY="152.0" prefHeight="452.0" prefWidth="694.0" />
             <Button fx:id="createCaseButton" layoutX="815.0" layoutY="67.0" mnemonicParsing="false" onAction="#createCaseButtonClick" text="Opret sag" />
             <Button fx:id="backToStartPaneButton" layoutX="55.0" layoutY="579.0" mnemonicParsing="false" onAction="#backToStartPaneButtonClick" text="Tilbage" />
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="showCaseAnchorPane" disable="true" prefHeight="650.0" prefWidth="1000.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <Button fx:id="seeListOfCaseButton" layoutX="383.0" layoutY="173.0" mnemonicParsing="false" onAction="#seeListOfCaseButtonClick" text="Overblik" />
+            <ListView fx:id="showCaseListView" layoutX="383.0" layoutY="220.0" prefHeight="380.0" prefWidth="554.0" />
          </children>
       </AnchorPane>
    </children>

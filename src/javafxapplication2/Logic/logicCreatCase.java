@@ -10,7 +10,9 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 /**
  *
@@ -54,12 +56,26 @@ public class logicCreatCase {
           
       }
     }
-    
-    public void getCaseID(){
         
+    public List<String> getCaseList(){
+        Statement a = null;
+        ResultSet øv = null;
+        ArrayList<String> test = new ArrayList();
+        test.add("CPR\t:\t ID\t:\t Time \t\t TextInput");
+        
+        try{
+            a = db.createStatement();
+            øv = a.executeQuery("select * from caseTable");
+            
+            while(øv.next()){
+                test.add(øv.getString(1)+"\t\t"+øv.getString(4)+"\t\t"+øv.getString(2)+"\t\t"+øv.getString(3));
+            }
+            
+        }catch(Exception e){
+            
+        }
+       return test;
     }
-    public static void main(String[] args) {
-        logicCreatCase a = new logicCreatCase();
-        a.createNewCase("lksndlkvnslkvs", "oinsdgoinsoignoids");
-    }
+   
+    
 }
