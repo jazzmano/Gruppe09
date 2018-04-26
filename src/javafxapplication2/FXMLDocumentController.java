@@ -108,6 +108,14 @@ public class FXMLDocumentController implements Initializable {
     private AnchorPane createUserAnchorPane;
     @FXML
     private AnchorPane createCaseAnchorPane;
+    @FXML
+    private Button logUdAdminPaneButton;
+    @FXML
+    private Button logUdBorgerPaneButton;
+    @FXML
+    private Button logUdSecretaryPaneButton;
+    @FXML
+    private Button logUdSocialWorkerButton;
     
     private void handleButtonAction(ActionEvent event) {
         System.out.println("You clicked me!");
@@ -259,6 +267,22 @@ public class FXMLDocumentController implements Initializable {
           changeScene(createCaseAnchorPane, adminStartPane);
         }else
             changeScene(createCaseAnchorPane, socialWorkerStartPane); 
+    }
+
+    @FXML
+    private void logUdAdminPaneButtonClick(ActionEvent event) {
+    }
+
+    @FXML
+    private void logUdBorgerPaneButtonClick(ActionEvent event) {
+    }
+
+    @FXML
+    private void logUdSecretaryButtonClick(ActionEvent event) {
+    }
+
+    @FXML
+    private void logUdSocialWorkerButtonClick(ActionEvent event) {
     }
     
 }
