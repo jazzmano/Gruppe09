@@ -20,6 +20,7 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.text.Text;
+import javafxapplication2.Logic.logicCreatCase;
 import javafxapplication2.Logic.logicLogin;
 
 /**
@@ -29,7 +30,7 @@ import javafxapplication2.Logic.logicLogin;
 public class FXMLDocumentController implements Initializable {
     
     private logicLogin login = new logicLogin();
-    
+    private logicCreatCase createCase = new logicCreatCase();
     
     private Label label;
     @FXML
@@ -65,8 +66,6 @@ public class FXMLDocumentController implements Initializable {
     @FXML
     private Button ListOfUserButton;
     @FXML
-    private TextArea ListOfUsersField;
-    @FXML
     private Button AcessUserButton;
     @FXML
     private Button backToAdminPane;
@@ -87,10 +86,6 @@ public class FXMLDocumentController implements Initializable {
     @FXML
     private Text IfUsertypeIsWrong;
     @FXML
-    private TextArea ListOfPasswodFiled;
-    @FXML
-    private TextArea ListOfUsertypeFiled;
-    @FXML
     private Button deleteUserButton;
     @FXML
     private TextField deleteUserTextField;
@@ -102,6 +97,12 @@ public class FXMLDocumentController implements Initializable {
     private TextField deletePasswordTextField;
     @FXML
     private ListView<String> TestListView;
+    @FXML
+    private TextField cprField;
+    @FXML
+    private TextArea caseInputField;
+    @FXML
+    private Button createCaseButton;
     
     private void handleButtonAction(ActionEvent event) {
         System.out.println("You clicked me!");
@@ -235,6 +236,11 @@ public class FXMLDocumentController implements Initializable {
         }else
             erBrugerenSlettetLabel.setText("Ingen bruger med det navn");
         
+    }
+
+    @FXML
+    private void createCaseButtonClick(ActionEvent event) {
+        createCase.createNewCase(cprField.getText(), caseInputField.getText());
     }
     
 }

@@ -17,7 +17,7 @@ import java.util.Date;
  * @author nicol
  */
 public class logicCreatCase {
-     Connection db = null;
+    Connection db = null;
     private String cpr;
     private String time;
     private String textinput;
@@ -38,15 +38,18 @@ public class logicCreatCase {
     public void createNewCase(String cpr,String textInput){
       Statement a = null;
       ResultSet øv = null;
-      caseID id = new caseID();
-      this.caseID = String.valueOf(id);
+      Statement aa = null;
+      ResultSet øvø = null;
       Date currentTime = new Date();
       try {
+            aa = db.createStatement();
+            øvø = aa.executeQuery("select * from caseTable");
+            int i = 0;
+            while(øvø.next()){
+            i++;
+            }
             a = db.createStatement();
-            øv = a.executeQuery("insert into caseTable values('"+cpr+"','"+currentTime+"','"+textInput+"','"+caseID+"')");
-            
-            id.increaseID();
-          
+            øv = a.executeQuery("insert into caseTable values('"+cpr+"','"+currentTime+"','"+textInput+"','"+i+"')");    
       }catch(Exception e){
           
       }
@@ -57,6 +60,6 @@ public class logicCreatCase {
     }
     public static void main(String[] args) {
         logicCreatCase a = new logicCreatCase();
-        a.createNewCase("341532323-23", "ole er dum f dig lort");
+        a.createNewCase("lksndlkvnslkvs", "oinsdgoinsoignoids");
     }
 }
