@@ -104,15 +104,15 @@ public class logicCreatCase {
         return i;
     }
     
-    public String getCase(){
+    public String getCaseTextinput(){
          Statement a = null;
          ResultSet øv = null;
-         String text = "";
+         String text = "Text:\t";
          try{
              a = db.createStatement();
              øv = a.executeQuery("select * from caseTable where cpr = '"+this.cpr+"' AND caseid = '"+this.caseID+"';");
             while(øv.next()){
-                 text = text+øv.getString(1)+"\t"+øv.getString(2)+"\t"+øv.getString(4)+"\n"+øv.getString(3);
+                 text += øv.getString(3);
             }
             
          }catch(Exception e){
@@ -120,6 +120,56 @@ public class logicCreatCase {
          }
          return text;
     }
-   
     
+    public String getCaseCPR(){
+        Statement a = null;
+        ResultSet øv = null;
+        String text = "CPR :\t";
+        try{
+            a = db.createStatement();
+            øv = a.executeQuery("select * from caseTable where cpr = '"+this.cpr+"' AND caseid = '"+this.caseID+"';");
+            while(øv.next()){
+                text += øv.getString(1);
+            }
+        }catch(Exception e){
+            
+        }
+        return text;
+    }
+    
+    public String getTime(){
+        
+    Statement a = null;
+         ResultSet øv = null;
+         String text = "Time:\t";
+         try{
+             a = db.createStatement();
+             øv = a.executeQuery("select * from caseTable where cpr = '"+this.cpr+"' AND caseid = '"+this.caseID+"';");
+            while(øv.next()){
+                 text += øv.getString(2);
+            }
+            
+         }catch(Exception e){
+             
+         }
+         return text;
+   
+    }
+    
+    public String getCaseID(){
+        Statement a = null;
+         ResultSet øv = null;
+         String text = "CaseID :\t";
+         try{
+             a = db.createStatement();
+             øv = a.executeQuery("select * from caseTable where cpr = '"+this.cpr+"' AND caseid = '"+this.caseID+"';");
+            while(øv.next()){
+                 text += øv.getString(4);
+            }
+            
+         }catch(Exception e){
+             
+         }
+         return text;
+    }
 }

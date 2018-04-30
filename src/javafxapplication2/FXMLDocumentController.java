@@ -142,6 +142,10 @@ public class FXMLDocumentController implements Initializable {
     private Label caseTimeLabel;
     @FXML
     private Label caseIDLabel;
+    @FXML
+    private Button SeeCaseBackButton;
+    @FXML
+    private Button socialWorkerSeeCaseButton;
     
     private void handleButtonAction(ActionEvent event) {
         System.out.println("You clicked me!");
@@ -330,10 +334,28 @@ public class FXMLDocumentController implements Initializable {
     private void findeCaseButtonClick(ActionEvent event) {
         if(createCase.isCaseInDb(cprSearchField.getText(), idSearchField.getText())){
             changeScene(showCaseAnchorPane, findCaseAnchorPane);
-            showCaseArea.setText(createCase.getCase());
+            showCaseArea.setWrapText(true);
+            showCaseArea.setText(createCase.getCaseTextinput());
+            cprOutputLabel.setText(createCase.getCaseCPR());
+            caseTimeLabel.setText(createCase.getTime());
+            caseIDLabel.setText(createCase.getCaseID());
         }else{
-            indsnfoinsdofosfd.setText("dsfndionf");
+            indsnfoinsdofosfd.setText("findes ikke ");
         }
+    }
+
+    @FXML
+    private void SeeCaseBackButtonclick(ActionEvent event) {
+        if(login.getUsertype()== 1){
+            changeScene(findCaseAnchorPane, showCaseAnchorPane);
+        }else if(login.getUsertype() == 2){
+           
+        }
+    }
+
+    @FXML
+    private void socialWorkerSeeCaseButtonClick(ActionEvent event) {
+        changeScene(userStartPane, showCaseAnchorPane);
     }
     
 }

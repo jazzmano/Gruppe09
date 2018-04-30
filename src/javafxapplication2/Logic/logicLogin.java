@@ -5,6 +5,7 @@
  */
 package javafxapplication2.Logic;
 
+import acquaintance.IlogicLogin;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
@@ -14,11 +15,12 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+
 /**
  *
  * @author nicol
  */
-public class logicLogin{
+public class logicLogin implements IlogicLogin{
     Connection db = null;
     private int usertype;
     private String userName;
@@ -203,14 +205,14 @@ public class logicLogin{
     
 }
 
-    public static void main(String[] args){
-//        logicLogin a = new logicLogin();
-//        System.out.println(a.isInProfileDB("Kristian" , "1234"));
-//        System.out.println(a.getUsertype());
-//        a.createNewUser("noget","1234",3);
-        Date r = new Date();
-       
-        System.out.println(r);
-        //System.out.println(a.getListOfUseres());
-    }
+//    public static void main(String[] args){
+////        logicLogin a = new logicLogin();
+////        System.out.println(a.isInProfileDB("Kristian" , "1234"));
+////        System.out.println(a.getUsertype());
+////        a.createNewUser("noget","1234",3);
+//        Date r = new Date();
+//       
+//        System.out.println(r);
+//        //System.out.println(a.getListOfUseres());
+//    }
 }
