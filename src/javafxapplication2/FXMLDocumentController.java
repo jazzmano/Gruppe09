@@ -124,6 +124,18 @@ public class FXMLDocumentController implements Initializable {
     private Button seeListOfCaseButton;
     @FXML
     private ListView<String> showCaseListView;
+    @FXML
+    private TextField cprSearchField;
+    @FXML
+    private TextField idSearchField;
+    @FXML
+    private Button findeCaseButton;
+    @FXML
+    private AnchorPane findCaseAnchorPane;
+    @FXML
+    private TextArea showCaseArea;
+    @FXML
+    private Label indsnfoinsdofosfd;
     
     private void handleButtonAction(ActionEvent event) {
         System.out.println("You clicked me!");
@@ -299,12 +311,23 @@ public class FXMLDocumentController implements Initializable {
 
     @FXML
     private void showCaseAdminButtonClick(ActionEvent event) {
+        changeScene(adminStartPane, showCaseAnchorPane);
     }
 
     @FXML
     private void seeListOfCaseButtonClick(ActionEvent event) {
         ObservableList<String> UserCase = FXCollections.observableArrayList(createCase.getCaseList()); 
         showCaseListView.setItems(UserCase);
+    }
+
+    @FXML
+    private void findeCaseButtonClick(ActionEvent event) {
+        if(createCase.isCaseInDb(cprSearchField.getText(), idSearchField.getText())== true){
+            changeScene(showCaseAnchorPane, findCaseAnchorPane);
+            showCaseArea.setText(createCase.getCase());
+        }else{
+            indsnfoinsdofosfd.setText("dsfndionf");
+        }
     }
     
 }

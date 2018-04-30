@@ -61,20 +61,62 @@ public class logicCreatCase {
         Statement a = null;
         ResultSet øv = null;
         ArrayList<String> test = new ArrayList();
-        test.add("CPR\t:\t ID\t:\t Time \t\t TextInput");
+        test.add("CPR\t:\t ID\t:\t Time");
         
         try{
             a = db.createStatement();
             øv = a.executeQuery("select * from caseTable");
             
             while(øv.next()){
-                test.add(øv.getString(1)+"\t\t"+øv.getString(4)+"\t\t"+øv.getString(2)+"\t\t"+øv.getString(3));
+                test.add(øv.getString(1)+"\t\t"+øv.getString(4)+"\t\t"+øv.getString(2));
             }
             
         }catch(Exception e){
             
         }
        return test;
+    }
+    public boolean isCaseInDb(String cpr,String id){
+        Statement a = null;
+        ResultSet øv = null;
+        boolean i = false;
+        String cprInDb = "";
+        String idInDb = "";
+        
+        try{
+            a = db.createStatement();
+            øv = a.executeQuery("select * from Users");
+            while(øv.next()){
+                cprInDb = øv.getString(1);
+                idInDb = øv.getString(4);
+                if(cprInDb.equalsIgnoreCase(cpr.trim()) && idInDb.equalsIgnoreCase(id.trim())){
+                  this.cpr = øv.getString(1);
+                  this.caseID = øv.getString(4);
+                  this.time = øv.getString(2);
+                  this.textinput = øv.getString(3);
+                    i = true;
+                }
+            }
+        }catch(Exception e){
+            
+        }
+        return i;
+    }
+    
+    public String getCase(){
+         Statement a = null;
+         ResultSet øv = null;
+         String text = "";
+         try{
+             a = db.createStatement();
+             øv = a.executeQuery("select * from caseTable where cpr = '"+cpr+"' and caseid = '"+caseID+"';");
+             while(øv.next()){
+                 text = øv.getString(1)+"\t"+øv.getString(2)+"\t"+øv.getString(4)+"\n"+øv.getString(3);
+             }
+         }catch(Exception e){
+             
+         }
+         return text;
     }
    
     
