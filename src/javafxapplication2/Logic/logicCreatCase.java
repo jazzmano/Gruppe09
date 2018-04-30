@@ -85,7 +85,7 @@ public class logicCreatCase {
         
         try{
             a = db.createStatement();
-            øv = a.executeQuery("select * from Users");
+            øv = a.executeQuery("select * from caseTable");
             while(øv.next()){
                 cprInDb = øv.getString(1);
                 idInDb = øv.getString(4);
@@ -95,6 +95,7 @@ public class logicCreatCase {
                   this.time = øv.getString(2);
                   this.textinput = øv.getString(3);
                     i = true;
+                    break;
                 }
             }
         }catch(Exception e){
@@ -109,10 +110,11 @@ public class logicCreatCase {
          String text = "";
          try{
              a = db.createStatement();
-             øv = a.executeQuery("select * from caseTable where cpr = '"+cpr+"' and caseid = '"+caseID+"';");
-             while(øv.next()){
-                 text = øv.getString(1)+"\t"+øv.getString(2)+"\t"+øv.getString(4)+"\n"+øv.getString(3);
-             }
+             øv = a.executeQuery("select * from caseTable where cpr = '"+this.cpr+"' AND caseid = '"+this.caseID+"';");
+            while(øv.next()){
+                 text = text+øv.getString(1)+"\t"+øv.getString(2)+"\t"+øv.getString(4)+"\n"+øv.getString(3);
+            }
+            
          }catch(Exception e){
              
          }

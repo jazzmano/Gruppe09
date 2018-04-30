@@ -322,7 +322,7 @@ public class FXMLDocumentController implements Initializable {
 
     @FXML
     private void findeCaseButtonClick(ActionEvent event) {
-        if(createCase.isCaseInDb(cprSearchField.getText(), idSearchField.getText())== true){
+        if(createCase.isCaseInDb(cprSearchField.getText(), idSearchField.getText())){
             changeScene(showCaseAnchorPane, findCaseAnchorPane);
             showCaseArea.setText(createCase.getCase());
         }else{
