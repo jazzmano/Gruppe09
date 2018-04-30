@@ -136,6 +136,12 @@ public class FXMLDocumentController implements Initializable {
     private TextArea showCaseArea;
     @FXML
     private Label indsnfoinsdofosfd;
+    @FXML
+    private Label cprOutputLabel;
+    @FXML
+    private Label caseTimeLabel;
+    @FXML
+    private Label caseIDLabel;
     
     private void handleButtonAction(ActionEvent event) {
         System.out.println("You clicked me!");
