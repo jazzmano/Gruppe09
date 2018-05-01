@@ -148,6 +148,10 @@ public class FXMLDocumentController implements Initializable {
     private Button SeeCaseBackButton;
     @FXML
     private Button socialWorkerSeeCaseButton;
+    @FXML
+    private Button secretaryCaseButton;
+    @FXML
+    private Button BackToUserMenueButton;
     
     private void handleButtonAction(ActionEvent event) {
         System.out.println("You clicked me!");
@@ -352,16 +356,28 @@ public class FXMLDocumentController implements Initializable {
 
     @FXML
     private void SeeCaseBackButtonclick(ActionEvent event) {
-        if(business.getUserType()== 1){
-            changeScene(findCaseAnchorPane, showCaseAnchorPane);
-        }else if(business.getUserType() == 2){
-           
-        }
+        changeScene(findCaseAnchorPane, showCaseAnchorPane);
     }
 
     @FXML
     private void socialWorkerSeeCaseButtonClick(ActionEvent event) {
         changeScene(userStartPane, showCaseAnchorPane);
+    }
+
+    @FXML
+    private void BackToUserMenueButtonClick(ActionEvent event) {
+        if(business.getUserType()==1){
+            changeScene(showCaseAnchorPane, adminStartPane);
+        }else if(business.getUserType()  == 2){
+            changeScene(showCaseAnchorPane,socialWorkerStartPane);
+        }else if(business.getUserType() == 3){
+            changeScene(showCaseAnchorPane, secretaryStartPane);
+        }
+    }
+
+    @FXML
+    private void secretaryCaseButtonClick(ActionEvent event) {
+        changeScene(secretaryStartPane, showCaseAnchorPane);
     }
     
 }
