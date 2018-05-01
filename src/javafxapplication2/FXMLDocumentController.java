@@ -5,6 +5,7 @@
  */
 package javafxapplication2;
 
+import acquaintance.IBusiness;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
@@ -29,8 +30,9 @@ import javafxapplication2.Logic.logicLogin;
  */
 public class FXMLDocumentController implements Initializable {
     
-    private logicLogin login = new logicLogin();
-    private logicCreatCase createCase = new logicCreatCase();
+//    private logicLogin login = new logicLogin();
+//    private logicCreatCase createCase = new logicCreatCase();
+    private IBusiness business;
     
     private Label label;
     @FXML
@@ -156,7 +158,11 @@ public class FXMLDocumentController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
     }    
-
+    
+    public void injectBusiness(IBusiness business){
+        this.business = business;
+    }
+    
     @FXML
     private void loginButtonClick(ActionEvent event) {
         //String username = usernameField.getText();
@@ -165,17 +171,17 @@ public class FXMLDocumentController implements Initializable {
         //check.trimForSpacePassword(password);
         //changeScene(loginScreenPane, adminStartPane);
         
-        boolean a = login.isInProfileDB(usernameField.getText(),passwordField.getText());
+        boolean a = business.isProfileInDB(usernameField.getText(),passwordField.getText());
         if(a == true){
-            int i = login.getUsertype();
+            int i = business.getUserType();
             //changeScene(loginScreenPane, SocialWorkerPane);
-            if(login.getUsertype() == 1){
+            if(business.getUserType() == 1){
                 changeScene(loginScreenPane, adminStartPane);
-            }else if(login.getUsertype() == 2){
+            }else if(business.getUserType() == 2){
                 changeScene(loginScreenPane, socialWorkerStartPane);
-            }else if(login.getUsertype() == 3){
+            }else if(business.getUserType() == 3){
                 changeScene(loginScreenPane, secretaryStartPane);
-            }else if(login.getUsertype() == 4){
+            }else if(business.getUserType() == 4){
                 changeScene(loginScreenPane, userStartPane);
             }
         }
@@ -196,17 +202,17 @@ public class FXMLDocumentController implements Initializable {
 
     @FXML
     private void failedLoginButtonClick(ActionEvent event) {
-        boolean a = login.isInProfileDB(failedUsernameField.getText(),failedPasswordField.getText());
+        boolean a = business.isProfileInDB(failedUsernameField.getText(),failedPasswordField.getText());
         if(a == true){
-            int i = login.getUsertype();
+            int i = business.getUserType();
             //changeScene(loginScreenPane, SocialWorkerPane);
-            if(login.getUsertype() == 1){
+            if(business.getUserType() == 1){
                 changeScene(loginFailedScreenPane, adminStartPane);
-            }else if(login.getUsertype() == 2){
+            }else if(business.getUserType() == 2){
                 changeScene(loginFailedScreenPane, socialWorkerStartPane);
-            }else if(login.getUsertype() == 3){
+            }else if(business.getUserType() == 3){
                 changeScene(loginFailedScreenPane, secretaryStartPane);
-            }else if(login.getUsertype() == 4){
+            }else if(business.getUserType() == 4){
                 changeScene(loginFailedScreenPane, userStartPane);
             }
         }
@@ -223,7 +229,7 @@ public class FXMLDocumentController implements Initializable {
 
     @FXML
     private void ListOfUserButtonClick(ActionEvent event) {
-          ObservableList<String> userTest = FXCollections.observableArrayList(login.getUserlist()); 
+          ObservableList<String> userTest = FXCollections.observableArrayList(business.getUserList()); 
           TestListView.setItems(userTest);
 //        ListOfUsersField.setText(login.getListOfUseresName());
 //        ListOfPasswodFiled.setText(login.getListOfUseresPassword());
@@ -249,7 +255,7 @@ public class FXMLDocumentController implements Initializable {
     @FXML
     private void CreateNewUserButtonClick(ActionEvent event) {
         if(Integer.parseInt(CreateUserTypeTextField.getText()) <= 4 && Integer.parseInt(CreateUserTypeTextField.getText()) > 0){
-            login.createNewUser(CreateUsernameTextField.getText(), CreateUserPasswordTextField.getText(), Integer.parseInt(CreateUserTypeTextField.getText()));
+            business.createNewUser(CreateUsernameTextField.getText(), CreateUserPasswordTextField.getText(), Integer.parseInt(CreateUserTypeTextField.getText()));
             IfUsertypeIsWrong.setText("bruger oprettet");
         }else{
             IfUsertypeIsWrong.setText("forkert input i brugertype ");
@@ -273,8 +279,8 @@ public class FXMLDocumentController implements Initializable {
 
     @FXML
     private void conformButtonClick(ActionEvent event) {
-        if(login.isInProfileDB(deleteUserTextField.getText(), deletePasswordTextField.getText())){
-            login.deleteUser(deleteUserTextField.getText(),deletePasswordTextField.getText());
+        if(business.isProfileInDB(deleteUserTextField.getText(), deletePasswordTextField.getText())){
+            business.deleteUser(deleteUserTextField.getText(),deletePasswordTextField.getText());
             erBrugerenSlettetLabel.setText("Brugeren er fjernet");
         }else
             erBrugerenSlettetLabel.setText("Ingen bruger med det navn");
@@ -283,7 +289,7 @@ public class FXMLDocumentController implements Initializable {
 
     @FXML
     private void createCaseButtonClick(ActionEvent event) {
-        createCase.createNewCase(cprField.getText(), caseInputField.getText());
+        business.creataNewCase(cprField.getText(), caseInputField.getText());
     }
 
     @FXML
@@ -293,7 +299,7 @@ public class FXMLDocumentController implements Initializable {
 
     @FXML
     private void backToStartPaneButtonClick(ActionEvent event) {
-        if(login.getUsertype() == 1){
+        if(business.getUserType() == 1){
           changeScene(createCaseAnchorPane, adminStartPane);
         }else
             changeScene(createCaseAnchorPane, socialWorkerStartPane); 
@@ -326,19 +332,19 @@ public class FXMLDocumentController implements Initializable {
 
     @FXML
     private void seeListOfCaseButtonClick(ActionEvent event) {
-        ObservableList<String> UserCase = FXCollections.observableArrayList(createCase.getCaseList()); 
+        ObservableList<String> UserCase = FXCollections.observableArrayList(business.getCaseList()); 
         showCaseListView.setItems(UserCase);
     }
 
     @FXML
     private void findeCaseButtonClick(ActionEvent event) {
-        if(createCase.isCaseInDb(cprSearchField.getText(), idSearchField.getText())){
+        if(business.isCaseInDB(cprSearchField.getText(), idSearchField.getText())){
             changeScene(showCaseAnchorPane, findCaseAnchorPane);
             showCaseArea.setWrapText(true);
-            showCaseArea.setText(createCase.getCaseTextinput());
-            cprOutputLabel.setText(createCase.getCaseCPR());
-            caseTimeLabel.setText(createCase.getTime());
-            caseIDLabel.setText(createCase.getCaseID());
+            showCaseArea.setText(business.getCaseTextInput());
+            cprOutputLabel.setText(business.getCaseCPR());
+            caseTimeLabel.setText(business.getTime());
+            caseIDLabel.setText(business.getCaseID());
         }else{
             indsnfoinsdofosfd.setText("findes ikke ");
         }
@@ -346,9 +352,9 @@ public class FXMLDocumentController implements Initializable {
 
     @FXML
     private void SeeCaseBackButtonclick(ActionEvent event) {
-        if(login.getUsertype()== 1){
+        if(business.getUserType()== 1){
             changeScene(findCaseAnchorPane, showCaseAnchorPane);
-        }else if(login.getUsertype() == 2){
+        }else if(business.getUserType() == 2){
            
         }
     }

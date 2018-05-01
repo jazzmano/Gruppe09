@@ -5,6 +5,8 @@
  */
 package javafxapplication2;
 
+import acquaintance.IBusiness;
+import acquaintance.IUI;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -15,11 +17,17 @@ import javafx.stage.Stage;
  *
  * @author euc
  */
-public class JavaFXApplication2 extends Application {
+public class JavaFXApplication2 extends Application implements IUI{
+    
+    private static IBusiness business;
     
     @Override
     public void start(Stage stage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("FXMLDocument.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("FXMLDocument.fxml"));
+        Parent root = loader.load();
+        
+        FXMLDocumentController controller = loader.getController();
+        controller.injectBusiness(business);
         
         Scene scene = new Scene(root);
         
@@ -27,14 +35,14 @@ public class JavaFXApplication2 extends Application {
         stage.show();
     }
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String[] args) {
+    @Override
+    public void injectBusiness(IBusiness businessLayer) {
+        business = businessLayer;
+    }
+
+    @Override
+    public void startApplication(String[] args) {
         launch(args);
-        
-        
-        
     }
     
 }

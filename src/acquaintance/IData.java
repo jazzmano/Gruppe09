@@ -11,7 +11,7 @@ import java.util.List;
  *
  * @author nicol
  */
-public interface IlogicLogin {
+public interface IData {
     
     public boolean isInProfileDB(String name, String password);
     public int getUsertype();
@@ -21,8 +21,13 @@ public interface IlogicLogin {
     public void createNewUser(String username,String password,int usertype);
     public void deleteUser(String name,String password);
     
+    public void createNewCase(String cpr,String textInput);
+    public List<String> getCaseList();
+    public boolean isCaseInDb(String cpr,String id);
+    public String getCaseTextinput();
+    public String getCaseCPR();
+    public String getTime();
+    public String getCaseID();
     
-    
-
-    
+ 
 }
