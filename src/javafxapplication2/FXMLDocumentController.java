@@ -154,6 +154,10 @@ public class FXMLDocumentController implements Initializable {
     private Button secretaryCaseButton;
     @FXML
     private Button BackToUserMenueButton;
+    @FXML
+    private TextField searchBarCaseList;
+    @FXML
+    private Button searchButtonCaseList;
     
     private void handleButtonAction(ActionEvent event) {
         System.out.println("You clicked me!");
@@ -380,6 +384,10 @@ public class FXMLDocumentController implements Initializable {
     @FXML
     private void secretaryCaseButtonClick(ActionEvent event) {
         changeScene(secretaryStartPane, showCaseAnchorPane);
+    }
+
+    @FXML
+    private void searchButtonCaseListClick(ActionEvent event) {
     }
 
     
