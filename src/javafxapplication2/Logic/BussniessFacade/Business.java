@@ -81,5 +81,7 @@ public class Business implements IBusiness{
     public int getUserType() {
         return data.getUsertype();
     }
-    
+    public List<String> getSpecificCaseList(String list){
+        return data.getSpecificCaseList(list);
+    }
 }

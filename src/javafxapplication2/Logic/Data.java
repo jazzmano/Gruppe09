@@ -357,4 +357,24 @@ public class Data implements IData{
          }
          return text;
     }
+    
+    public List<String> getSpecificCaseList(String CPR){
+        Statement a = null;
+        ResultSet øv = null;
+        ArrayList<String> test = new ArrayList();
+        test.add("CPR\t:\t ID\t:\t Time");
+        
+        try{
+            a = db.createStatement();
+            øv = a.executeQuery("select * from caseTable where cpr = '"+CPR+"';");
+            
+            while(øv.next()){
+                test.add(øv.getString(1)+"\t\t"+øv.getString(4)+"\t\t"+øv.getString(2));
+            }
+            
+        }catch(Exception e){
+            
+        }
+        return test;
+    }
 }

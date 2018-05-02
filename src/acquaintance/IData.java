@@ -28,6 +28,7 @@ public interface IData {
     public String getCaseCPR();
     public String getTime();
     public String getCaseID();
+    public List<String> getSpecificCaseList(String CPR);
     
  
 }

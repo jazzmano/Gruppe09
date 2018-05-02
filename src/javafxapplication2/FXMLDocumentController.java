@@ -388,6 +388,8 @@ public class FXMLDocumentController implements Initializable {
 
     @FXML
     private void searchButtonCaseListClick(ActionEvent event) {
+        ObservableList<String> UserCase = FXCollections.observableArrayList(business.getSpecificCaseList(searchBarCaseList.getText())); 
+        showCaseListView.setItems(UserCase);
     }
 
     

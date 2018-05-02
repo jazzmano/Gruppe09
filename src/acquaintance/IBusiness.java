@@ -42,4 +42,6 @@ public interface IBusiness {
     public String getTime();
     
     public String getCaseID();
+    
+    public List<String> getSpecificCaseList(String list);
 }
