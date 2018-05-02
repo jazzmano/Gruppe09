@@ -19,6 +19,8 @@ import javafx.scene.control.ListView;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.text.Text;
 import javafxapplication2.Logic.logicCreatCase;
@@ -379,5 +381,6 @@ public class FXMLDocumentController implements Initializable {
     private void secretaryCaseButtonClick(ActionEvent event) {
         changeScene(secretaryStartPane, showCaseAnchorPane);
     }
+
     
 }
