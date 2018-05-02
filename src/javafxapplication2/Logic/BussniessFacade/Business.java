@@ -57,8 +57,8 @@ public class Business implements IBusiness{
         return data.getCaseList();
     }
     
-    public boolean isCaseInDB(String cpr,String id){
-        return data.isCaseInDb(cpr, id);
+    public boolean isCaseInDB(String id){
+        return data.isCaseInDb(id);
     }
     
     public String getCaseTextInput(){

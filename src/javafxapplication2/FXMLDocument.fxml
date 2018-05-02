@@ -15,8 +15,8 @@
    <children>
       <AnchorPane fx:id="loginScreenPane" prefHeight="650.0" prefWidth="1000.0" style="-fx-background-color: #20B2AA;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <TextField fx:id="usernameField" layoutX="388.0" layoutY="267.0" minWidth="225.0" promptText="Brugernavn" style="-fx-background-color: #2F4F4F;" />
-            <PasswordField fx:id="passwordField" layoutX="388.0" layoutY="313.0" minWidth="225.0" promptText="Kodeord" style="-fx-background-color: #2F4F4F;" />
+            <TextField fx:id="usernameField" layoutX="388.0" layoutY="267.0" minWidth="225.0" promptText="Brugernavn" />
+            <PasswordField fx:id="passwordField" layoutX="388.0" layoutY="313.0" minWidth="225.0" promptText="Kodeord" />
             <Button fx:id="loginButton" layoutX="475.0" layoutY="388.0" mnemonicParsing="false" onAction="#loginButtonClick" style="-fx-background-color: #7CFC00;" text="Login" />
          </children>
          <effect>
@@ -25,7 +25,7 @@
       </AnchorPane>
       <AnchorPane fx:id="loginFailedScreenPane" disable="true" prefHeight="650.0" prefWidth="1000.0" style="-fx-background-color: #20B2AA;" visible="false">
          <children>
-            <TextField fx:id="failedUsernameField" layoutX="388.0" layoutY="266.0" minWidth="225.0" promptText="Brugernavn" />
+            <TextField fx:id="failedUsernameField" layoutX="388.0" layoutY="266.0" minWidth="225.0" promptText="Brugernavn" visible="false" />
             <PasswordField fx:id="failedPasswordField" layoutX="388.0" layoutY="336.0" minWidth="225.0" promptText="Kodeord" />
             <Button fx:id="failedLoginButton" layoutX="475.0" layoutY="388.0" mnemonicParsing="false" onAction="#failedLoginButtonClick" text="Login" />
             <Label alignment="CENTER" layoutX="410.0" layoutY="200.0" text="Login fejlede - Prøv igen">
@@ -101,9 +101,8 @@
          <children>
             <Button fx:id="seeListOfCaseButton" layoutX="383.0" layoutY="173.0" mnemonicParsing="false" onAction="#seeListOfCaseButtonClick" text="Overblik" />
             <ListView fx:id="showCaseListView" layoutX="383.0" layoutY="220.0" prefHeight="380.0" prefWidth="554.0" />
-            <TextField fx:id="cprSearchField" layoutX="134.0" layoutY="351.0" promptText="Indsæt CPR-nummer" />
-            <TextField fx:id="idSearchField" layoutX="134.0" layoutY="410.0" promptText="Indsæt sags-ID" />
-            <Button fx:id="findeCaseButton" layoutX="157.0" layoutY="496.0" mnemonicParsing="false" onAction="#findeCaseButtonClick" text="Button" />
+            <TextField fx:id="idSearchField" layoutX="677.0" layoutY="173.0" promptText="Indsæt sags-ID" />
+            <Button fx:id="findeCaseButton" layoutX="833.0" layoutY="173.0" mnemonicParsing="false" onAction="#findeCaseButtonClick" text="Søg" />
             <Label fx:id="indsnfoinsdofosfd" layoutX="183.0" layoutY="450.0" />
             <Button fx:id="BackToUserMenueButton" layoutX="43.0" layoutY="588.0" mnemonicParsing="false" onAction="#BackToUserMenueButtonClick" text="Tilbage" />
             <TextField fx:id="searchBarCaseList" layoutX="470.0" layoutY="173.0" promptText="Indsæt CPR-nummer" />

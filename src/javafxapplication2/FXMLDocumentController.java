@@ -129,8 +129,6 @@ public class FXMLDocumentController implements Initializable {
     @FXML
     private ListView<String> showCaseListView;
     @FXML
-    private TextField cprSearchField;
-    @FXML
     private TextField idSearchField;
     @FXML
     private Button findeCaseButton;
@@ -348,7 +346,7 @@ public class FXMLDocumentController implements Initializable {
 
     @FXML
     private void findeCaseButtonClick(ActionEvent event) {
-        if(business.isCaseInDB(cprSearchField.getText(), idSearchField.getText())){
+        if(business.isCaseInDB(idSearchField.getText())){
             changeScene(showCaseAnchorPane, findCaseAnchorPane);
             showCaseArea.setWrapText(true);
             showCaseArea.setText(business.getCaseTextInput());
@@ -356,7 +354,7 @@ public class FXMLDocumentController implements Initializable {
             caseTimeLabel.setText(business.getTime());
             caseIDLabel.setText(business.getCaseID());
         }else{
-            indsnfoinsdofosfd.setText("findes ikke ");
+            indsnfoinsdofosfd.setText("ID findes ikke - prøv igen! ");
         }
     }
 

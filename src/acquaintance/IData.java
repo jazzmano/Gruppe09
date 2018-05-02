@@ -23,7 +23,7 @@ public interface IData {
     
     public void createNewCase(String cpr,String textInput);
     public List<String> getCaseList();
-    public boolean isCaseInDb(String cpr,String id);
+    public boolean isCaseInDb(String id);
     public String getCaseTextinput();
     public String getCaseCPR();
     public String getTime();

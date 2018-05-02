@@ -261,7 +261,7 @@ public class Data implements IData{
         }
        return test;
     }
-    public boolean isCaseInDb(String cpr,String id){
+    public boolean isCaseInDb(String id){
         Statement a = null;
         ResultSet øv = null;
         boolean i = false;
@@ -274,7 +274,7 @@ public class Data implements IData{
             while(øv.next()){
                 cprInDb = øv.getString(1);
                 idInDb = øv.getString(4);
-                if(cprInDb.equalsIgnoreCase(cpr.trim()) && idInDb.equalsIgnoreCase(id.trim())){
+                if(idInDb.equalsIgnoreCase(id.trim())){
                   this.cpr = øv.getString(1);
                   this.caseID = øv.getString(4);
                   this.time = øv.getString(2);

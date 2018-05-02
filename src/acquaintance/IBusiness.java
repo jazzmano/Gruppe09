@@ -33,7 +33,7 @@ public interface IBusiness {
     
     public List<String> getCaseList();
     
-    public boolean isCaseInDB(String cpr,String id);
+    public boolean isCaseInDB(String id);
     
     public String getCaseTextInput();
     
