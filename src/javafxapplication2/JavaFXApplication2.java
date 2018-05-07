@@ -19,14 +19,37 @@ import javafx.stage.Stage;
  */
 public class JavaFXApplication2 extends Application implements IUI{
     
-    private static IBusiness business;
+   public static IBusiness business;
     
-    @Override
+//    @Override
+//    public void start(Stage stage) throws Exception {
+//        FXMLLoader loader = new FXMLLoader(getClass().getResource("FXMLDocument.fxml"));
+//        Parent root = loader.load();
+//        
+//        FXMLDocumentController controller = loader.getController();
+//        controller.injectBusiness(business);
+//        
+//        Scene scene = new Scene(root);
+//        
+//        stage.setScene(scene);
+//        stage.show();
+//    }
+//
+//    @Override
+//    public void injectBusiness(IBusiness businessLayer) {
+//        business = businessLayer;
+//    }
+//
+//    @Override
+//    public void startApplication(String[] args) {
+//        launch(args);
+//    }
+     @Override
     public void start(Stage stage) throws Exception {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("FXMLDocument.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("LoginScreen.fxml"));
         Parent root = loader.load();
         
-        FXMLDocumentController controller = loader.getController();
+        LoginScreenController controller = loader.getController();
         controller.injectBusiness(business);
         
         Scene scene = new Scene(root);
@@ -44,5 +67,6 @@ public class JavaFXApplication2 extends Application implements IUI{
     public void startApplication(String[] args) {
         launch(args);
     }
-    
+        
+   
 }

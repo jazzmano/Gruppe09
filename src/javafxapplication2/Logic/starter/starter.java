@@ -21,12 +21,16 @@ public class starter {
     public static void main(String[] args) {
     
         IData data = new Data();
+        
         IBusiness bus = new Business();
         bus.injectData(data);
+        
         IUI ui = new JavaFXApplication2();
         
         ui.injectBusiness(bus);
+        
         ui.startApplication(args);
+       
     
     }
     

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<AnchorPane id="AnchorPane" prefHeight="650.0" prefWidth="1000.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.141" fx:controller="javafxapplication2.CreateCaseController">
+   <children>
+      <AnchorPane fx:id="createCaseAnchorPane" layoutX="10.0" layoutY="10.0" prefHeight="660.0" prefWidth="1010.0" style="-fx-background-color: #20B2AA;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <TextField fx:id="cprField" layoutX="107.0" layoutY="67.0" />
+            <TextArea fx:id="caseInputField" layoutX="147.0" layoutY="152.0" prefHeight="452.0" prefWidth="694.0" wrapText="true" />
+            <Button fx:id="createCaseButton" layoutX="815.0" layoutY="67.0" mnemonicParsing="false" onAction="#createCaseButtonClick" text="Opret sag" />
+            <Button fx:id="backToStartPaneButton" layoutX="55.0" layoutY="579.0" mnemonicParsing="false" onAction="#backToStartPaneButtonClick" text="Tilbage" />
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>
