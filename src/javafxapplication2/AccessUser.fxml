@@ -6,19 +6,18 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Text?>
 
-
-<AnchorPane id="AnchorPane" prefHeight="650.0" prefWidth="1000.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.141" fx:controller="javafxapplication2.AccessUserController">
+<AnchorPane id="AnchorPane" prefHeight="650.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="javafxapplication2.AccessUserController">
    <children>
       <AnchorPane fx:id="accessUserAnchorPane" layoutX="10.0" layoutY="10.0" prefHeight="660.0" prefWidth="1010.0" style="-fx-background-color: #20B2AA;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
             <Button fx:id="ListOfUserButton" layoutX="651.0" layoutY="120.0" mnemonicParsing="false" onAction="#ListOfUserButtonClick" prefHeight="75.0" prefWidth="210.0" text="Liste af brugere" />
             <Button fx:id="CreateUserButton" layoutX="106.0" layoutY="120.0" mnemonicParsing="false" onAction="#CreateUserButtonClick" prefHeight="75.0" prefWidth="210.0" text="Opret bruger" />
             <Button fx:id="backToAdminPane" layoutX="14.0" layoutY="611.0" mnemonicParsing="false" onAction="#backToAdminPaneClick" text="Tilbage" />
-            <Button fx:id="deleteUserButton" layoutX="106.0" layoutY="267.0" mnemonicParsing="false" onAction="#deleteUserButtonClick" prefHeight="75.0" prefWidth="210.0" text="Slet bruger" />
-            <TextField fx:id="deleteUserTextField" disable="true" layoutX="106.0" layoutY="396.0" prefHeight="26.0" prefWidth="210.0" visible="false" />
-            <Button fx:id="confirmButton" disable="true" layoutX="182.0" layoutY="526.0" mnemonicParsing="false" onAction="#conformButtonClick" text="bekræft" visible="false" />
-            <Text fx:id="erBrugerenSlettetLabel" disable="true" layoutX="172.0" layoutY="500.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="77.00000703334808" />
-            <TextField fx:id="deletePasswordTextField" disable="true" layoutX="106.0" layoutY="444.0" prefHeight="26.0" prefWidth="210.0" visible="false" />
+            <Button fx:id="deleteUserButton" layoutX="106.0" layoutY="214.0" mnemonicParsing="false" onAction="#deleteUserButtonClick" prefHeight="75.0" prefWidth="210.0" text="Slet bruger" />
+            <TextField fx:id="deleteUserTextField" disable="true" layoutX="106.0" layoutY="354.0" prefHeight="26.0" prefWidth="210.0" visible="false" />
+            <Button fx:id="confirmButton" disable="true" layoutX="182.0" layoutY="505.0" mnemonicParsing="false" onAction="#conformButtonClick" text="bekræft" visible="false" />
+            <Text fx:id="erBrugerenSlettetLabel" disable="true" layoutX="172.0" layoutY="472.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="77.00000703334808" />
+            <TextField fx:id="deletePasswordTextField" disable="true" layoutX="106.0" layoutY="406.0" prefHeight="26.0" prefWidth="210.0" visible="false" />
             <ListView fx:id="TestListView" layoutX="566.0" layoutY="214.0" prefHeight="357.0" prefWidth="378.0" />
          </children>
       </AnchorPane>

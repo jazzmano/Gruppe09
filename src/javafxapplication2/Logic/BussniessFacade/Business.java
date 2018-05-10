@@ -41,17 +41,17 @@ public class Business implements IBusiness{
         return data.getUserlist();
     }
     
-    public void createNewUser(String username,String password,int usertype){
-        data.createNewUser(username, password, usertype);
+    public void createNewUser(String username,String password,int usertype,String cpr,String address,String number,String name){
+        data.createNewUser(username, password, usertype,cpr,address,number,name);
     }
     
     public void deleteUser(String name,String password){
         data.deleteUser(name, password);
     }
     
-    public void creataNewCase(String cpr,String textInput){
-        data.createNewCase(cpr, textInput);
-    }
+//    public void creataNewCase(String cpr,String textInput){
+//        data.createNewCase(cpr, textInput);
+//    }
     
     public List<String> getCaseList(){
         return data.getCaseList();
@@ -84,4 +84,40 @@ public class Business implements IBusiness{
     public List<String> getSpecificCaseList(String list){
         return data.getSpecificCaseList(list);
     }
+     public String getCpr(){
+        return data.getCpr();
+    }
+    public String getAddress(){
+        return data.getAddress();
+    }
+    
+    public String getNumber(){
+        return data.getNumber();
+    }
+    
+    public String getName(){
+        return data.getName();
+    }
+
+    @Override
+    public boolean Test(String CPR) {
+        return data.Test(CPR);
+    }
+
+    @Override
+    public void test2OpretTing(String cpr, String textinput) {
+        data.test2OpretTing(cpr, textinput);
+    }
+
+    @Override
+    public int howManyCasesInDB() {
+        return data.howManyCasesInDB();
+    }
+
+    @Override
+    public void createCaseNEW(String text) {
+        data.createCaseNEW(text);
+    }
+
+   
 }

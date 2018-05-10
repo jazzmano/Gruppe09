@@ -60,7 +60,8 @@ public class CreateCaseController implements Initializable {
 
     @FXML
     private void createCaseButtonClick(ActionEvent event) {
-        business.creataNewCase(cprField.getText(), caseInputField.getText());
+    business.test2OpretTing(cprField.getText(), caseInputField.getText());
+
     }
 
     @FXML

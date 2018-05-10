@@ -18,10 +18,10 @@ public interface IData {
     public String getUsername();
     public String getPassword();
     public List<String> getUserlist();
-    public void createNewUser(String username,String password,int usertype);
+    public void createNewUser(String username,String password,int usertype,String cpr,String address,String number,String name);
     public void deleteUser(String name,String password);
     
-    public void createNewCase(String cpr,String textInput);
+  //  public void createNewCase(String cpr,String textInput);
     public List<String> getCaseList();
     public boolean isCaseInDb(String id);
     public String getCaseTextinput();
@@ -30,5 +30,13 @@ public interface IData {
     public String getCaseID();
     public List<String> getSpecificCaseList(String CPR);
     
- 
+    public String getCpr();
+    public String getAddress();
+    public String getNumber();
+    public String getName();
+    
+    public boolean Test(String CPR);
+    public void test2OpretTing(String cpr,String textinput);
+    public int howManyCasesInDB();
+    public void createCaseNEW(String text);
 }

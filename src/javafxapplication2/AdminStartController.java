@@ -80,5 +80,6 @@ public class AdminStartController implements Initializable {
     private void showCaseAdminButtonClick(ActionEvent event) throws IOException {
         changeScreen(event, "ShowCase.fxml");
     }
+
     
 }

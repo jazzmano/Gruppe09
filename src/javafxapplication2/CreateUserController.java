@@ -43,6 +43,14 @@ public class CreateUserController implements Initializable {
     private Button CreateNewUserButton;
     @FXML
     private Text IfUsertypeIsWrong;
+    @FXML
+    private TextField CreataUserCprTextField;
+    @FXML
+    private TextField CreateUserAddressTextField;
+    @FXML
+    private TextField CreateUserNumberTextField;
+    @FXML
+    private TextField CreateUserNameTextField;
 
     /**
      * Initializes the controller class.
@@ -69,7 +77,8 @@ public class CreateUserController implements Initializable {
     @FXML
     private void CreateNewUserButtonClick(ActionEvent event) {
         if(Integer.parseInt(CreateUserTypeTextField.getText())<= 4 && Integer.parseInt(CreateUserTypeTextField.getText()) >0){
-           business.createNewUser(CreateUsernameTextField.getText(), CreateUserPasswordTextField.getText(), Integer.parseInt(CreateUserTypeTextField.getText()));
+           business.createNewUser(CreateUsernameTextField.getText(), CreateUserPasswordTextField.getText(), Integer.parseInt(CreateUserTypeTextField.getText()),
+                   CreataUserCprTextField.getText(),CreateUserAddressTextField.getText(),CreateUserNumberTextField.getText(),CreateUserNameTextField.getText());
            IfUsertypeIsWrong.setText("Bruger oprettet");
         }else{
             IfUsertypeIsWrong.setText("forkert input i brugertype");

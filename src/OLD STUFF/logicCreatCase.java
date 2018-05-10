@@ -103,23 +103,24 @@ public class logicCreatCase {
         }
         return i;
     }
+    //bliver muligvis ikke brugt.
     
-    public String getCaseTextinput(){
-         Statement a = null;
-         ResultSet øv = null;
-         String text = "Text:\t";
-         try{
-             a = db.createStatement();
-             øv = a.executeQuery("select * from caseTable where cpr = '"+this.cpr+"' AND caseid = '"+this.caseID+"';");
-            while(øv.next()){
-                 text += øv.getString(3);
-            }
-            
-         }catch(Exception e){
-             
-         }
-         return text;
-    }
+//    public String getCaseTextinput(){
+//         Statement a = null;
+//         ResultSet øv = null;
+//         String text = "Text:\t";
+//         try{
+//             a = db.createStatement();
+//             øv = a.executeQuery("select * from caseTable where cpr = '"+this.cpr+"' AND caseid = '"+this.caseID+"';");
+//            while(øv.next()){
+//                 text += øv.getString(3);
+//            }
+//            
+//         }catch(Exception e){
+//             
+//         }
+//         return text;
+//    }
     
     public String getCaseCPR(){
         Statement a = null;
