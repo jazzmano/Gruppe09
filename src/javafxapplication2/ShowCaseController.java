@@ -63,6 +63,14 @@ public class ShowCaseController implements Initializable {
     private Label caseIDLabel;
     @FXML
     private Button SeeCaseBackButton;
+    @FXML
+    private Button deleteCaseButton;
+    @FXML
+    private TextField deleteCaseTextField;
+    @FXML
+    private Button deleteCaseSafetyButton;
+    @FXML
+    private Label deleteCaseLabel;
 
     /**
      * Initializes the controller class.
@@ -129,6 +137,24 @@ public class ShowCaseController implements Initializable {
     @FXML
     private void SeeCaseBackButtonclick(ActionEvent event) {
         change(findCaseAnchorPane, showCaseAnchorPane);
+    }
+
+    @FXML
+    private void deleteCaseButtonClicked(ActionEvent event) {
+         deleteCaseTextField.setVisible(true);
+        deleteCaseTextField.setDisable(false);
+        deleteCaseSafetyButton.setVisible(true);
+        deleteCaseSafetyButton.setDisable(false);
+    }
+
+    @FXML
+    private void deleteCaseSafetyButtonClicked(ActionEvent event) {
+        if(business.isIDInDB(deleteCaseTextField.getText())){
+            business.deleteCase(deleteCaseTextField.getText());
+            deleteCaseLabel.setText("Sagen er slettet");
+        }else{
+            deleteCaseLabel.setText("Der er en fejl med SagID");
+        }
     }
     
 }

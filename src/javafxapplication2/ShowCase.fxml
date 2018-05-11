@@ -19,6 +19,10 @@
             <Button fx:id="BackToUserMenueButton" layoutX="43.0" layoutY="588.0" mnemonicParsing="false" onAction="#BackToUserMenueButtonClick" text="Tilbage" />
             <TextField fx:id="searchBarCaseList" layoutX="470.0" layoutY="173.0" promptText="Indsæt CPR-nummer" />
             <Button fx:id="searchButtonCaseList" layoutX="630.0" layoutY="173.0" mnemonicParsing="false" onAction="#searchButtonCaseListClick" text="Søg" />
+            <Button fx:id="deleteCaseButton" layoutX="138.0" layoutY="166.0" mnemonicParsing="false" onAction="#deleteCaseButtonClicked" prefHeight="65.0" prefWidth="90.0" text="Slet Sag" />
+            <TextField fx:id="deleteCaseTextField" disable="true" layoutX="109.0" layoutY="294.0" visible="false" />
+            <Button fx:id="deleteCaseSafetyButton" disable="true" layoutX="273.0" layoutY="294.0" mnemonicParsing="false" onAction="#deleteCaseSafetyButtonClicked" prefHeight="25.0" prefWidth="37.0" text="OK" visible="false" />
+            <Label fx:id="deleteCaseLabel" layoutX="169.0" layoutY="344.0" />
          </children>
       </AnchorPane>
       <AnchorPane fx:id="findCaseAnchorPane" disable="true" layoutX="20.0" layoutY="20.0" prefHeight="680.0" prefWidth="1030.0" style="-fx-background-color: #20B2AA;" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">

@@ -119,5 +119,25 @@ public class Business implements IBusiness{
         data.createCaseNEW(text);
     }
 
+    @Override
+    public void deleteFromCases(String ID) {
+        data.deleteFromCases(ID);
+    }
+
+    @Override
+    public void deleteFromPercas(String ID) {
+        data.deleteFromPercas(ID);
+    }
+
+    @Override
+    public boolean isIDInDB(String ID) {
+        return data.isIDInDB(ID);
+    }
+
+    @Override
+    public void deleteCase(String ID) {
+        data.deleteCase(ID);
+    }
+
    
 }

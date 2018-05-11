@@ -252,4 +252,63 @@ public class cases implements Icases{
 
         }
     }
+    @Override
+     public void deleteCase(String ID){
+         if(isIDInDB(ID)==true){
+             deleteFromPercas(ID);
+             deleteFromCases(ID);
+         }
+         
+     }
+    @Override
+     public boolean isIDInDB(String ID){
+         Statement a = null;
+        ResultSet øv = null;
+        try {
+            a = db.createStatement();//vigtig fejlen er i den nedenstående linje 
+            øv = a.executeQuery("select * from percas where caseID = '"+ID+"'");
+            
+            while(øv.next()){
+                if(øv.getString(2).equals(ID)){
+                    return true;
+                }
+            }
+
+        } catch (Exception e) {
+           
+
+        }
+         return false;
+     }
+    @Override
+     public void deleteFromPercas(String ID){
+         Statement a = null;
+        ResultSet øv = null;
+        try {
+            a = db.createStatement();//vigtig fejlen er i den nedenstående linje 
+            øv = a.executeQuery("delete from percas where caseID = '"+ID+"'");
+
+        } catch (Exception e) {
+
+        }
+         
+     }
+    @Override
+     public void deleteFromCases(String ID){
+         Statement a = null;
+        ResultSet øv = null;
+        try {
+            a = db.createStatement();//vigtig fejlen er i den nedenstående linje 
+            øv = a.executeQuery("delete from cases where caseID = '"+ID+"'");
+
+        } catch (Exception e) {
+
+        }
+         
+     }
+     
+     public static void main(String[] args) {
+        cases a = new cases();
+         System.out.println(a.isIDInDB("1"));
+    }
 }

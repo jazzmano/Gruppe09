@@ -26,4 +26,8 @@ public interface Icases {
     public int howManyCasesInDB();
     public void createCaseNEW(String text);
     public void virknu(String cpr);
+    public void deleteFromCases(String ID);
+    public void deleteFromPercas(String ID);
+    public boolean isIDInDB(String ID);
+    public void deleteCase(String ID);
 }

@@ -121,5 +121,25 @@ public class Data implements IData{
     public void createCaseNEW(String text) {
         cas.createCaseNEW(text);
     }
+
+    @Override
+    public void deleteFromCases(String ID) {
+        cas.deleteFromCases(ID);
+    }
+
+    @Override
+    public void deleteFromPercas(String ID) {
+        cas.deleteFromPercas(ID);
+    }
+
+    @Override
+    public boolean isIDInDB(String ID) {
+       return cas.isIDInDB(ID);
+    }
+
+    @Override
+    public void deleteCase(String ID) {
+        cas.deleteCase(ID);
+    }
     
 }
