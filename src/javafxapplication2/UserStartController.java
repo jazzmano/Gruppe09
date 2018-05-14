@@ -16,6 +16,9 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.control.ListView;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
@@ -30,6 +33,22 @@ public class UserStartController implements Initializable {
     private AnchorPane userStartPane;
     @FXML
     private Button logUdBorgerPaneButton;
+    @FXML
+    private Label nameLabel;
+    @FXML
+    private Label addressLabel;
+    @FXML
+    private Label numberLabel;
+    @FXML
+    private Label CPRLabel;
+    @FXML
+    private ListView<?> CaseListView;
+    @FXML
+    private Button GoToCaseButton;
+    @FXML
+    private TextField userCaseIDSearchTextField;
+    @FXML
+    private Button refreshButton;
 
     /**
      * Initializes the controller class.
@@ -53,6 +72,14 @@ public class UserStartController implements Initializable {
     @FXML
     private void logUdBorgerPaneButtonClick(ActionEvent event) throws IOException {
         changeScreen(event, "LoginScreen.fxml");
+    }
+
+    @FXML
+    private void GoToCaseButtonClicked(ActionEvent event) {
+    }
+
+    @FXML
+    private void refreshButtonClicked(ActionEvent event) {
     }
     
 }
