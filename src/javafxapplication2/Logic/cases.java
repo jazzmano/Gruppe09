@@ -70,14 +70,53 @@ public class cases implements Icases{
         return test;
     }
      public String getEffortNeeded(){
-         return this.effortsNeeded;
+         Statement a = null;
+        ResultSet øv = null;
+        String text = "";
+        try {
+            a = db.createStatement();
+            øv = a.executeQuery("select * from cases where caseid = '" + caseID + "'");
+            while (øv.next()) {
+                text += øv.getString(7);
+            }
+
+        } catch (Exception e) {
+
+        }
+        return text;
      }
     @Override
      public String getDescription(){
-         return this.sDescription;
+         Statement a = null;
+        ResultSet øv = null;
+        String text = "";
+        try {
+            a = db.createStatement();
+            øv = a.executeQuery("select * from cases where caseid = '" + caseID + "'");
+            while (øv.next()) {
+                text += øv.getString(5);
+            }
+
+        } catch (Exception e) {
+
+        }
+        return text;
      }
      public String getEvaluation(){
-         return this.nEvaluation;
+        Statement a = null;
+        ResultSet øv = null;
+        String text = "";
+        try {
+            a = db.createStatement();
+            øv = a.executeQuery("select * from cases where caseid = '" + caseID + "'");
+            while (øv.next()) {
+                text += øv.getString(6);
+            }
+
+        } catch (Exception e) {
+
+        }
+        return text;
      }
      
      

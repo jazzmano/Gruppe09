@@ -59,7 +59,6 @@ public class UserStartController implements Initializable {
     private Button seeCaseBackButton;
     @FXML
     private Button seeCaseLogOutButton;
-    @FXML
     private TextArea SeeCaseTextArea;
     @FXML
     private Label TitleLabel;
@@ -69,6 +68,14 @@ public class UserStartController implements Initializable {
     private Label noCaseFoundLabel;
     @FXML
     private Button myInformationButton;
+    @FXML
+    private TextArea showCaseArea;
+    @FXML
+    private TextArea sdescription;
+    @FXML
+    private TextArea nEvaluation;
+    @FXML
+    private TextArea effortsneeded;
 
     /**
      * Initializes the controller class.
@@ -100,12 +107,15 @@ public class UserStartController implements Initializable {
     }
 
     @FXML
-    private void GoToCaseButtonClicked(ActionEvent event) {
+    private void GoToCaseButtonClicked(ActionEvent event) throws IOException{
         if(business.isCaseInDB(userCaseIDSearchTextField.getText())){
             change(userStartPane, SeeCasePane);
-            SeeCaseTextArea.setText(business.getCaseTextInput());
+            showCaseArea.setText(business.getCaseTextInput());
             TitleLabel.setText(business.getTitle());
             dateLabel.setText(business.getTime());
+            sdescription.setText(business.getDescription());
+            nEvaluation.setText(business.getEvaluation());
+            effortsneeded.setText(business.getEffortNeeded());
         }else{
             noCaseFoundLabel.setText("ingen sag findes med det ID");
         }
