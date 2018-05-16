@@ -24,6 +24,6 @@ public interface Ipersons {
     public List<String> getUserlist();
     public void createNewUser(String username, String password, int usertype, String cpr, String address, String number, String name);
     public void deleteUser(String name, String password);
-    
+    public List<String> citizenCaseList();
     
 }

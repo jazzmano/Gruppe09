@@ -8,6 +8,8 @@ package javafxapplication2;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -18,9 +20,11 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
+import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import static javafxapplication2.JavaFXApplication2.business;
 
 /**
  * FXML Controller class
@@ -42,13 +46,29 @@ public class UserStartController implements Initializable {
     @FXML
     private Label CPRLabel;
     @FXML
-    private ListView<?> CaseListView;
+    private ListView<String> CaseListView;
     @FXML
     private Button GoToCaseButton;
     @FXML
     private TextField userCaseIDSearchTextField;
     @FXML
     private Button refreshButton;
+    @FXML
+    private AnchorPane SeeCasePane;
+    @FXML
+    private Button seeCaseBackButton;
+    @FXML
+    private Button seeCaseLogOutButton;
+    @FXML
+    private TextArea SeeCaseTextArea;
+    @FXML
+    private Label TitleLabel;
+    @FXML
+    private Label dateLabel;
+    @FXML
+    private Label noCaseFoundLabel;
+    @FXML
+    private Button myInformationButton;
 
     /**
      * Initializes the controller class.
@@ -63,7 +83,12 @@ public class UserStartController implements Initializable {
         window.setScene(screen);
         window.show();
     }
-    
+     private void change(AnchorPane from, AnchorPane to) {
+        from.setVisible(false);
+        from.setDisable(true);
+        to.setVisible(true);
+        to.setDisable(false);
+    }
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
@@ -76,10 +101,39 @@ public class UserStartController implements Initializable {
 
     @FXML
     private void GoToCaseButtonClicked(ActionEvent event) {
+        if(business.isCaseInDB(userCaseIDSearchTextField.getText())){
+            change(userStartPane, SeeCasePane);
+            SeeCaseTextArea.setText(business.getCaseTextInput());
+            TitleLabel.setText(business.getTitle());
+            dateLabel.setText(business.getTime());
+        }else{
+            noCaseFoundLabel.setText("ingen sag findes med det ID");
+        }
+        
     }
 
     @FXML
     private void refreshButtonClicked(ActionEvent event) {
+     ObservableList<String> UserCase = FXCollections.observableArrayList(business.citizenCaseList());
+     CaseListView.setItems(UserCase);   
+    }
+
+    @FXML
+    private void seeCaseBackButtonClick(ActionEvent event) {
+        change(SeeCasePane, userStartPane);
+    }
+
+    @FXML
+    private void seeCaseLogOutButtonClick(ActionEvent event) throws IOException {
+          changeScreen(event, "LoginScreen.fxml");
+    }
+
+    @FXML
+    private void myInformationButtonClick(ActionEvent event) {
+        nameLabel.setText(business.getName());
+        addressLabel.setText(business.getAddress());
+        numberLabel.setText(business.getNumber());
+        CPRLabel.setText(business.getCpr());
     }
     
 }

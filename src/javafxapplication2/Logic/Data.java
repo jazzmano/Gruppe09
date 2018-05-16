@@ -108,8 +108,8 @@ public class Data implements IData{
     }
 
     @Override
-    public void test2OpretTing(String cpr, String textinput) {
-        cas.test2OpretTing(cpr, textinput);
+    public void test2OpretTing(String cpr, String textinput,String title) {
+        cas.test2OpretTing(cpr, textinput,title);
     }
 
     @Override
@@ -118,8 +118,8 @@ public class Data implements IData{
     }
 
     @Override
-    public void createCaseNEW(String text) {
-        cas.createCaseNEW(text);
+    public void createCaseNEW(String text,String title) {
+        cas.createCaseNEW(text,title);
     }
 
     @Override
@@ -141,5 +141,38 @@ public class Data implements IData{
     public void deleteCase(String ID) {
         cas.deleteCase(ID);
     }
+
+    @Override
+    public String getTitle() {
+        return cas.getTitle();
+    }
+
+    @Override
+    public List<String> citizenCaseList() {
+        return per.citizenCaseList();
+    }
+
+    @Override
+    public void evaluateCase(String text1, String text2, String text3) {
+        cas.evaluateCase(text1, text2, text3);
+    }
+
+    @Override
+    public String getDescription() {
+        return cas.getDescription();
+    }
+
+    @Override
+    public String getEffortNeeded() {
+        return cas.getEffortNeeded();
+    }
+
+    @Override
+    public String getEvaluation() {
+        return cas.getEvaluation();
+    }
+
+    
+    
     
 }

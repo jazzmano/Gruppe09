@@ -88,22 +88,23 @@ public class persons implements Ipersons{
     
     @Override
     public String getCpr() {
-        return this.getCPR;
+        
+        return "CPR: "+this.getCPR;
     }
 
     @Override
     public String getAddress() {
-        return this.address;
+        return "Address: "+this.address;
     }
 
     @Override
     public String getNumber() {
-        return this.number;
+        return "Number: "+this.number;
     }
 
     @Override
     public String getName() {
-        return this.name;
+        return "navn: "+this.name;
     }
        
     @Override
@@ -180,4 +181,28 @@ public class persons implements Ipersons{
         }
 
     }
+       @Override
+     public List<String> citizenCaseList(){
+       Statement a = null;
+        ResultSet øv = null;
+        ArrayList<String> test = new ArrayList();
+        test.add("ID\t:\t Title\t:\t Time");
+
+        try {
+            a = db.createStatement(); 
+            øv = a.executeQuery("select percas.caseID, cases.title, cases.date "
+                    + "from percas, cases, persons "
+                    + "where persons.cpr = '"+this.getCPR+"'" 
+                    + " AND percas.caseID = cases.caseID"
+                    + " AND percas.cpr = persons.cpr");
+            
+            while (øv.next()) {
+                test.add(øv.getString(1) + "\t\t" + øv.getString(2)+ "\t\t\t" + øv.getString(3));
+            }
+        } catch (Exception e) {
+
+        }   
+        return test;
+     }
+     
 }

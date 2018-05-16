@@ -36,11 +36,17 @@ public interface IData {
     public String getName();
     
     public boolean Test(String CPR);
-    public void test2OpretTing(String cpr,String textinput);
+    public void test2OpretTing(String cpr,String textinput, String title);
     public int howManyCasesInDB();
-    public void createCaseNEW(String text);
+    public void createCaseNEW(String text,String title);
     public void deleteFromCases(String ID);
     public void deleteFromPercas(String ID);
     public boolean isIDInDB(String ID);
     public void deleteCase(String ID);
+    public String getTitle();
+    public List<String> citizenCaseList();
+    public void evaluateCase(String text1, String text2, String text3);
+    public String getDescription();
+    public String getEffortNeeded();
+    public String getEvaluation();
 }

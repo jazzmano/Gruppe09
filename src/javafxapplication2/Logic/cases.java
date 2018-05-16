@@ -20,16 +20,23 @@ import java.util.List;
  * @author nicol
  */
 public class cases implements Icases{
-   
+    
+    
+    private persons per;
+    private String title;
     private String textinput;
     private String time;
     private String caseID;
+    private String sDescription;
+    private String nEvaluation;
+    private String effortsNeeded;
     Connection db = null;
     private final String url = "jdbc:postgresql://elmer.db.elephantsql.com:5432/jrqqkajy";
     private final String username = "jrqqkajy";
     private final String password = "HBsjDFGy5QmbskR9yiPzvJMl1qtnQ9s8";
     
     public cases() {
+        this.per = new persons();
         try {
             Class.forName("org.postgresql.Driver");
             db = DriverManager.getConnection(this.url, this.username, this.password);
@@ -44,17 +51,17 @@ public class cases implements Icases{
         Statement a = null;
         ResultSet øv = null;
         ArrayList<String> test = new ArrayList();
-        test.add("ID\t:\t\tCPR\t\t:\t Time");
+        test.add("ID\t:\t\tCPR\t\t:\t Time\t\t\t Title: ");
 
         try {
             a = db.createStatement();
-            øv = a.executeQuery("select percas.caseID , percas.cpr, cases.date "
+            øv = a.executeQuery("select percas.caseID , percas.cpr, cases.date, cases.title "
                     + "from cases,percas,persons "
                     + "where percas.caseid = cases.caseid AND "
                     + "percas.cpr = persons.cpr");
 
             while (øv.next()) {
-                test.add(øv.getString(1) + "\t\t" + øv.getString(2)+ "\t\t\t" + øv.getString(3));
+                test.add(øv.getString(1) + "\t\t" + øv.getString(2)+ "\t\t\t" + øv.getString(3)+"\t\t\t"+øv.getString(4));
             }
 
         } catch (Exception e) {
@@ -62,6 +69,18 @@ public class cases implements Icases{
         }
         return test;
     }
+     public String getEffortNeeded(){
+         return this.effortsNeeded;
+     }
+    @Override
+     public String getDescription(){
+         return this.sDescription;
+     }
+     public String getEvaluation(){
+         return this.nEvaluation;
+     }
+     
+     
     @Override
     public boolean isCaseInDb(String id) {
         Statement a = null;
@@ -81,6 +100,10 @@ public class cases implements Icases{
                     this.caseID = øv.getString(1);
                     this.time = øv.getString(2);
                     this.textinput = øv.getString(3);
+                    this.title = øv.getString(4);
+                    this.sDescription = øv.getString(5);
+                    this.nEvaluation = øv.getString(6);
+                    this.effortsNeeded = øv.getString(7);
                     i = true;
                     break;
                 }
@@ -142,6 +165,26 @@ public class cases implements Icases{
         return text;
 
     }
+    
+    @Override
+    public String getTitle(){
+        Statement a = null;
+        ResultSet øv = null;
+        String text = "Title :\t";
+        try {
+            a = db.createStatement();
+            øv = a.executeQuery("select * from cases where caseid = '" + this.caseID + "';");
+            while (øv.next()) {
+                text += øv.getString(4);
+            }
+
+        } catch (Exception e) {
+
+        }
+        return text;
+    
+    }
+    
     @Override
      public String getCaseID() {
         Statement a = null;
@@ -203,9 +246,9 @@ public class cases implements Icases{
         return false;
     }
     @Override
-     public void test2OpretTing(String cpr, String textinput) {
+     public void test2OpretTing(String cpr, String textinput,String title) {
         if (Test(cpr) == true) {
-            createCaseNEW(textinput);
+            createCaseNEW(textinput,title);
             virknu(cpr);
         }
     }
@@ -229,13 +272,13 @@ public class cases implements Icases{
 
     }
     @Override
-     public void createCaseNEW(String text) {
+     public void createCaseNEW(String text,String title) {
         Statement a = null;
         ResultSet øv = null;
         Date currentTime = new Date();
         try {
             a = db.createStatement();
-            øv = a.executeQuery("insert into cases values('" + howManyCasesInDB()+ "','" + currentTime + "','" + text + "')");
+            øv = a.executeQuery("insert into cases values('" + howManyCasesInDB()+ "','" + currentTime + "','" + text + "','"+title+"')");
         } catch (Exception e) {
 
         }
@@ -295,7 +338,7 @@ public class cases implements Icases{
      }
     @Override
      public void deleteFromCases(String ID){
-         Statement a = null;
+        Statement a = null;
         ResultSet øv = null;
         try {
             a = db.createStatement();//vigtig fejlen er i den nedenstående linje 
@@ -307,8 +350,20 @@ public class cases implements Icases{
          
      }
      
-     public static void main(String[] args) {
-        cases a = new cases();
-         System.out.println(a.isIDInDB("1"));
-    }
+     public void evaluateCase(String text1, String text2, String text3){
+        Statement a = null;
+        ResultSet øv = null;
+        try {
+            a = db.createStatement(); 
+            øv = a.executeQuery("update cases set sdescription = '"+text1+"', nevaluation = '"+text2+"', effortsneeded = '"+text3+"' where caseID = '"+this.caseID+"'");
+
+        } catch (Exception e) {
+
+        }
+         
+     }
+     
+   
+     
+ 
 }

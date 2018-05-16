@@ -71,6 +71,54 @@ public class ShowCaseController implements Initializable {
     private Button deleteCaseSafetyButton;
     @FXML
     private Label deleteCaseLabel;
+    @FXML
+    private Label Title;
+    @FXML
+    private AnchorPane displayTheCasePane;
+    @FXML
+    private Button backToMainScreen;
+    @FXML
+    private Button logOutButton;
+    @FXML
+    private TextArea showCaseTextArea;
+    @FXML
+    private Button goToFirstInput;
+    @FXML
+    private Button backToMainInput1;
+    @FXML
+    private Button logOutFirstInput;
+    @FXML
+    private TextArea firstInputTextArea;
+    @FXML
+    private Button goToSecondInput;
+    @FXML
+    private Button backToFirstInput;
+    @FXML
+    private Button logOutSecondInput;
+    @FXML
+    private TextArea secondInputTextArea;
+    @FXML
+    private Button goToThirdInput;
+    @FXML
+    private Button backToSecondInput;
+    @FXML
+    private Button logOutThirdInput;
+    @FXML
+    private TextArea thirdInputTextArea;
+    @FXML
+    private Button evaluateCaseButton;
+    @FXML
+    private AnchorPane firstInputPane;
+    @FXML
+    private AnchorPane secondInputPane;
+    @FXML
+    private AnchorPane thirdInputPane;
+    @FXML
+    private TextArea sdescription;
+    @FXML
+    private TextArea nEvaluation;
+    @FXML
+    private TextArea effortsneeded;
 
     /**
      * Initializes the controller class.
@@ -111,6 +159,10 @@ public class ShowCaseController implements Initializable {
             cprOutputLabel.setText(business.getCaseCPR());
             caseTimeLabel.setText(business.getTime());
             caseIDLabel.setText(business.getCaseID());
+            Title.setText(business.getTitle());
+            sdescription.setText(business.getDescription());
+            nEvaluation.setText(business.getEvaluation());
+            effortsneeded.setText(business.getEffortNeeded());
         }else{
             indsnfoinsdofosfd.setText("ID findes ikke - prøv igen! ");
         }   
@@ -141,10 +193,16 @@ public class ShowCaseController implements Initializable {
 
     @FXML
     private void deleteCaseButtonClicked(ActionEvent event) {
-         deleteCaseTextField.setVisible(true);
-        deleteCaseTextField.setDisable(false);
-        deleteCaseSafetyButton.setVisible(true);
-        deleteCaseSafetyButton.setDisable(false);
+//         deleteCaseTextField.setVisible(true);
+//        deleteCaseTextField.setDisable(false);
+//        deleteCaseSafetyButton.setVisible(true);
+//        deleteCaseSafetyButton.setDisable(false);
+    if(business.isIDInDB(deleteCaseTextField.getText())){
+            business.deleteCase(deleteCaseTextField.getText());
+            deleteCaseLabel.setText("Sagen er slettet");
+        }else{
+            deleteCaseLabel.setText("Der er en fejl med SagID");
+        }
     }
 
     @FXML
@@ -154,6 +212,79 @@ public class ShowCaseController implements Initializable {
             deleteCaseLabel.setText("Sagen er slettet");
         }else{
             deleteCaseLabel.setText("Der er en fejl med SagID");
+        }
+    }
+
+    @FXML
+    private void backToMainScreen(ActionEvent event) {
+        change(displayTheCasePane, showCaseAnchorPane);
+    }
+
+    @FXML
+    private void logOutButton(ActionEvent event) throws IOException {
+        changeScreen(event, "LoginScreen.fxml");
+    }
+
+    @FXML
+    private void goToFirstInput(ActionEvent event) {
+        change(displayTheCasePane,firstInputPane);
+    }
+
+    @FXML
+    private void backToMainInput1(ActionEvent event) {
+        change(firstInputPane,displayTheCasePane );
+    }
+
+    @FXML
+    private void logOutFirstInput(ActionEvent event) throws IOException {
+         changeScreen(event, "LoginScreen.fxml");
+    }
+
+    @FXML
+    private void goToSecondInput(ActionEvent event) {
+        change(firstInputPane, secondInputPane);
+    }
+
+    @FXML
+    private void backToFirstInput(ActionEvent event) {
+        change(secondInputPane, firstInputPane);
+    }
+
+    @FXML
+    private void logOutSecondInput(ActionEvent event) throws IOException {
+         changeScreen(event, "LoginScreen.fxml");
+    }
+
+    @FXML
+    private void goToThirdInput(ActionEvent event) {
+        change(secondInputPane, thirdInputPane);
+    }
+
+    @FXML
+    private void backToSecondInput(ActionEvent event) {
+        change(thirdInputPane, secondInputPane);
+    }
+
+    @FXML
+    private void logOutThirdInput(ActionEvent event) throws IOException {
+         changeScreen(event, "LoginScreen.fxml");
+    }
+
+    @FXML
+    private void evaluateCaseButton(ActionEvent event) {
+        if(firstInputTextArea.getText().equals("") || secondInputTextArea.getText().equals("") || thirdInputTextArea.getText().equals("")){
+            
+        }else{
+            business.evaluateCase(firstInputTextArea.getText(), secondInputTextArea.getText(), thirdInputTextArea.getText());
+        }
+            
+    }
+
+    @FXML
+    private void startEvaluationButton(ActionEvent event) {
+        if(business.isCaseInDB(deleteCaseTextField.getText())== true){
+            change(showCaseAnchorPane, displayTheCasePane);
+            showCaseTextArea.setText(business.getCaseTextInput());
         }
     }
     

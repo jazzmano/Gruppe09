@@ -16,6 +16,7 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
@@ -39,6 +40,10 @@ public class CreateCaseController implements Initializable {
     private Button createCaseButton;
     @FXML
     private Button backToStartPaneButton;
+    @FXML
+    private TextField TitleTextField;
+    @FXML
+    private Label isCaseCreatedlabel;
 
     /**
      * Initializes the controller class.
@@ -60,7 +65,14 @@ public class CreateCaseController implements Initializable {
 
     @FXML
     private void createCaseButtonClick(ActionEvent event) {
-    business.test2OpretTing(cprField.getText(), caseInputField.getText());
+    if(cprField.getText().equals("") || caseInputField.getText().equals("") || TitleTextField.getText().equals("")){
+        isCaseCreatedlabel.setText("ingen sag opprettet");
+        }
+        else
+        {
+        business.test2OpretTing(cprField.getText(), caseInputField.getText(),TitleTextField.getText());
+        isCaseCreatedlabel.setText("sag er oprettet");
+    }
 
     }
 
