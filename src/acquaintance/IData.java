@@ -35,8 +35,6 @@ public interface IData {
     public String getNumber();
     public String getName();
     
-    public boolean Test(String CPR);
-    public void test2OpretTing(String cpr,String textinput, String title);
     public int howManyCasesInDB();
     public void createCaseNEW(String text,String title);
     public void deleteFromCases(String ID);
@@ -49,4 +47,7 @@ public interface IData {
     public String getDescription();
     public String getEffortNeeded();
     public String getEvaluation();
+    public void CreateCaseInPercasAndCases(String cpr, String textinput,String title);
+    public boolean ChecIfCprExists(String CPR);
+    public void insertInToPercas(String cpr);
 }

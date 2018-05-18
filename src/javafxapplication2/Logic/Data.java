@@ -103,16 +103,6 @@ public class Data implements IData{
     }
 
     @Override
-    public boolean Test(String CPR) {
-        return cas.Test(CPR);
-    }
-
-    @Override
-    public void test2OpretTing(String cpr, String textinput,String title) {
-        cas.test2OpretTing(cpr, textinput,title);
-    }
-
-    @Override
     public int howManyCasesInDB() {
         return cas.howManyCasesInDB();
     }
@@ -170,6 +160,21 @@ public class Data implements IData{
     @Override
     public String getEvaluation() {
         return cas.getEvaluation();
+    }
+
+    @Override
+    public void CreateCaseInPercasAndCases(String cpr, String textinput,String title) {
+        cas.CreateCaseInPercasAndCases(cpr, textinput,title);
+    }
+
+    @Override
+    public boolean ChecIfCprExists(String CPR) {
+        return cas.ChecIfCprExists(CPR);
+    }
+
+    @Override
+    public void insertInToPercas(String cpr) {
+        cas.insertInToPercas(cpr);
     }
 
     

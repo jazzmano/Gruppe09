@@ -70,7 +70,7 @@ public class CreateCaseController implements Initializable {
         }
         else
         {
-        business.test2OpretTing(cprField.getText(), caseInputField.getText(),TitleTextField.getText());
+        business.CreateCaseInPercasAndCases(cprField.getText(), caseInputField.getText(),TitleTextField.getText());
         isCaseCreatedlabel.setText("sag er oprettet");
     }
 

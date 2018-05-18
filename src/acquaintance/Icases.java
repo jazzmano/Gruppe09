@@ -21,11 +21,8 @@ public interface Icases {
     public String getTime();
     public String getCaseID();
     public List<String> getSpecificCaseList(String CPR);
-    public boolean Test(String CPR);
-    public void test2OpretTing(String cpr, String textinput,String title);
     public int howManyCasesInDB();
     public void createCaseNEW(String text, String title);
-    public void virknu(String cpr);
     public void deleteFromCases(String ID);
     public void deleteFromPercas(String ID);
     public boolean isIDInDB(String ID);
@@ -35,4 +32,7 @@ public interface Icases {
     public String getDescription();
     public String getEffortNeeded();
     public String getEvaluation();
+    public void CreateCaseInPercasAndCases(String cpr, String textinput,String title);
+    public boolean ChecIfCprExists(String CPR);
+    public void insertInToPercas(String cpr);
 }

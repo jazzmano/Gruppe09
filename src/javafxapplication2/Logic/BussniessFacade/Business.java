@@ -100,16 +100,6 @@ public class Business implements IBusiness{
     }
 
     @Override
-    public boolean Test(String CPR) {
-        return data.Test(CPR);
-    }
-
-    @Override
-    public void test2OpretTing(String cpr, String textinput,String title) {
-        data.test2OpretTing(cpr, textinput,title);
-    }
-
-    @Override
     public int howManyCasesInDB() {
         return data.howManyCasesInDB();
     }
@@ -168,6 +158,19 @@ public class Business implements IBusiness{
     public String getEvaluation() {
         return data.getEvaluation();
     }
+     @Override
+    public void CreateCaseInPercasAndCases(String cpr, String textinput,String title) {
+        data.CreateCaseInPercasAndCases(cpr, textinput,title);
+    }
 
+    @Override
+    public boolean ChecIfCprExists(String CPR) {
+        return data.ChecIfCprExists(CPR);
+    }
+
+    @Override
+    public void insertInToPercas(String cpr) {
+        data.insertInToPercas(cpr);
+    }
    
 }

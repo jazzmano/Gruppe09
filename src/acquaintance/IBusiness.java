@@ -45,9 +45,12 @@ public interface IBusiness {
     
     public List<String> getSpecificCaseList(String list);
     
+    public void CreateCaseInPercasAndCases(String cpr, String textinput,String title);
+    public boolean ChecIfCprExists(String CPR);
     
-    public boolean Test(String CPR);
-    public void test2OpretTing(String cpr,String textinput,String title);
+    public void insertInToPercas(String cpr);
+     
+    
     public int howManyCasesInDB();
     public void createCaseNEW(String text,String title);
     public void deleteFromCases(String ID);

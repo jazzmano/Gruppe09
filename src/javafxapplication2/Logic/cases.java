@@ -266,7 +266,7 @@ public class cases implements Icases{
         return test;
     }
     @Override
-     public boolean Test(String CPR) {
+     public boolean ChecIfCprExists(String CPR){
         Statement a = null;
         ResultSet øv = null;
 
@@ -285,10 +285,10 @@ public class cases implements Icases{
         return false;
     }
     @Override
-     public void test2OpretTing(String cpr, String textinput,String title) {
-        if (Test(cpr) == true) {
+     public void CreateCaseInPercasAndCases(String cpr, String textinput,String title) {
+        if (ChecIfCprExists(cpr) == true) {
             createCaseNEW(textinput,title);
-            virknu(cpr);
+            insertInToPercas(cpr);
         }
     }
     @Override
@@ -323,7 +323,7 @@ public class cases implements Icases{
         }
     }
     @Override
-     public void virknu(String cpr) {
+     public void insertInToPercas(String cpr){
         Statement a = null;
         ResultSet øv = null;
         try {
